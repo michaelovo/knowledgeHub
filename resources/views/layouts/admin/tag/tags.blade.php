@@ -24,12 +24,7 @@
 
 
 
-          @if (count($errors) >0 )
-            @foreach($errors->all() as $error)
-              <p class="alert alert-danger">{{$error}}</p>
-            @endforeach
-          @endif
-
+          @include('layouts.includes.err_msg')
           <!-- form-->
           <form role="form" action="{{route('tags.store')}}" method="post">
             {{csrf_field()}} <!--laravel form security -->

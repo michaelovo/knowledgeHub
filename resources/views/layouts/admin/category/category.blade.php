@@ -26,10 +26,11 @@
       <div class="col-md-12"> <!--main-content col-md-12 -->
         <div class="card card-default"> <!-- card card-default -->
 
-
+        @include('layouts.includes.err_msg')
 
           <!-- form-->
-          <form role="form">
+          <form role="form" action="{{route('category.store')}}" method="post">
+              {{csrf_field()}} <!--laravel form security -->
             <div class="card-body"> <!-- title card-body -->
                 <div class="row"> <!-- titile row -->
 
