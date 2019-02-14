@@ -14,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('layouts.admin.category.show');
+      $categorys = category::all();
+        return view('layouts.admin.category.show',compact('categorys'));
     }
 
     /**
