@@ -50,3 +50,6 @@ Route::get('/admin/category', function () {
     return view('layouts.admin.category.category');
 })->name('category');
 */
+Route::get('/admin/table', function () {
+    return view('layouts.admin.table');
+})->name('table');

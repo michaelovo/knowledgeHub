@@ -5,8 +5,9 @@
 </head>
 
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
+  
   @include('layouts.admin.nav')
     @include('layouts.admin.sidebar')
 
@@ -14,7 +15,7 @@
       @show
     @include('layouts.admin.footer')
 
-  
+
 
 
 </div>

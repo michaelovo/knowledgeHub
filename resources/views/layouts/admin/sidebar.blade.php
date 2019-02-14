@@ -1,106 +1,67 @@
-<!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light">Ovo blog</span>
-    </a>
+<!-- Left side column. contains the logo and sidebar -->
+ <aside class="main-sidebar">
+   <!-- sidebar: style can be found in sidebar.less -->
+   <section class="sidebar">
+     <!-- Sidebar user panel -->
+     <div class="user-panel">
+       <div class="pull-left image">
+         <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+       </div>
+       <div class="pull-left info">
+         <p>Alexander Pierce</p>
+         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+       </div>
+     </div>
+     <!-- search form -->
+     <form action="#" method="get" class="sidebar-form">
+       <div class="input-group">
+         <input type="text" name="q" class="form-control" placeholder="Search...">
+         <span class="input-group-btn">
+               <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+               </button>
+             </span>
+       </div>
+     </form>
+     <!-- /.search form -->
+     <!-- sidebar menu: : style can be found in sidebar.less -->
+     <ul class="sidebar-menu" data-widget="tree">
+       <li class="header">MAIN NAVIGATION</li>
+       <li><a href="#" class="nav-link"><i class="fa fa-th"></i> <span>Dashboard</span></a></li>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Michael Ovo</a>
-        </div>
-      </div>
+       <li class="treeview">
+         <a href="#">
+           <i class="fa fa-edit text-blue"></i> <span>Blogs</span>
+           <span class="pull-right-container">
+             <i class="fa fa-angle-left pull-right"></i>
+           </span>
+         </a>
+         <ul class="treeview-menu">
+           <li><a href="{{route('post.index')}}"><i class="fa fa-circle-o"></i> Posts</a></li>
+           <li><a href="{{route('category.index')}}"><i class="fa fa-circle-o"></i> Category</a></li>
+           <li><a href="{{route('tags.index')}}"><i class="fa fa-circle-o"></i> Tags</a></li>
+         </ul>
+       </li>
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-               <li class="nav-item">
-                 <a href="./index3.html" class="nav-link">
-                   <i class="fa fa-dashboard nav-icon text-white"></i>
-                   <p>Dashboard</p>
-                 </a>
-               </li>
-
-          <li class="nav-item has-treeview ">
-            <a href="" class="nav-link">
-              <i class="nav-icon fa fa-edit text-info"></i>
-              <p>
-                Blogs
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('post.index')}}" class="nav-link ">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Posts</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('category.index')}}" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Categories</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('tags.index')}}" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Tags</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-item has-treeview">
-              <a href="" class="nav-link">
-                <i class="nav-icon fa fa-cogs text-success "></i>
-                <p>
-                  Management
-                  <i class="fa fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="{{route('user.index')}}" class="nav-link">
-                    <i class="fa fa-users nav-icon"></i>
-                    <p>Users</p>
-                  </a>
-                </li>
-
-              </ul>
-            </li>
-            <li class="nav-item">
-                <a href="pages/examples/profile.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon text-warning"></i>
-                  <p>Profile</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/login.html" class="nav-link">
-                  <i class="fa fa-power-off nav-icon text-danger"></i>
-                  <p>Logout</p>
-                </a>
-              </li>
+       <li class="treeview">
+         <a href="#">
+           <i class="fa fa-cogs text-green"></i> <span>Management</span>
+           <span class="pull-right-container">
+             <i class="fa fa-angle-left pull-right"></i>
+           </span>
+         </a>
+         <ul class="treeview-menu">
 
 
+           <li><a href="{{route('user.index')}}"><i class="fa fa-users"></i> Users</a></li>
+
+         </ul>
+       </li>
 
 
-
-
-
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
+       <!--li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li-->
+       <li><a href="#"><i class="fa fa-circle-o text-info"></i> <span>Profile</span></a></li>
+       <li><a href="#"><i class="fa fa-power-off text-red"></i> <span>Logout</span></a></li>
+     </ul>
+   </section>
+   <!-- /.sidebar -->
+ </aside>

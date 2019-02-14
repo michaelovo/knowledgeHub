@@ -1,78 +1,86 @@
 @extends('layouts.admin.app')
 
+ @section('headSection')
+ <!-- Select2 -->
+  <link rel="stylesheet" href="{{asset('admin/bower_components/select2/dist/css/select2.min.css')}}">
+ @endsection
+
+
 @section('main-content')
 
-@extends('layouts.admin.app')
+<!-- Main content -->
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+        Advanced Form Elements
+        <small>Preview</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Forms</a></li>
+        <li class="active">Advanced Elements</li>
+      </ol>
+    </section>
+    <!-- Content Header (Page header) -->
+    <section class="content">
 
-@section('main-content')
-
-<div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
-
-  <!--- start of first section ---->
-  <section class="content-header">   <!-- Content Header (Page header) -->
-    <div class="container-fluid">   <!-- Container fluid -->
-
-        <div class="col-sm-6"><!--super header -->
-          <h1>Text Editors</h1>
-        </div> <!-- /super header -->
-
-    </div><!-- /.container-fluid -->
-  </section> <!-- /Content Header (Page header) -->
-<!--- ends of first section -->
-
-  <!-- Main content -->
-  <section class="content">
-    <div class="row"><!-- main-content-row-->
-      <div class="col-md-12"> <!--main-content col-md-12 -->
-        <div class="card card-default"> <!-- card card-default -->
+      <!-- SELECT2 EXAMPLE -->
+      <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title">Select2</h3>
+        </div>
+        <!-- /.box-header -->
 
         @include('layouts.includes.err_msg')
 
           <!-- form-->
-          <form role="form" action="{{route('category.store')}}" method="post">
-              {{csrf_field()}} <!--laravel form security -->
-            <div class="card-body"> <!-- title card-body -->
-                <div class="row"> <!-- titile row -->
+        <form role="form" action="{{route('post.store')}}" method="post">
+          {{csrf_field()}}
 
-                  <div class="col-lg-offset-4 col-lg-4"> <!-- left colunm-->
-
-                  <!-- post title-->
-              <div class="form-group">
-                <label for="Category">Category title</label>
-                <input type="text" class="form-control" id="CategoryName" name ="name" placeholder="Category Title">
-              </div>
-              <!--/post title-->
+        <div class="box-body">
+          <div class="row">
+            <div class="col-lg-offset-3 col-lg-5">
 
 
-
-              <!-- post slug-->
-              <div class="form-group">
-                <label for="Categoryslug">Category Slug</label>
-                <input type="text" class="form-control" id="Categoryslug" name ="slug" placeholder="Category slug">
-              </div>
-              <!--/post slug -->
-
-
-            </div> <!-- /left column-->
-             <div> <!-- /title row -->
-             </div> <!--/title card-body -->
-
-
-
-
+              <!-- Tag title-->
+          <div class="form-group">
+            <label for="title">Category title</label>
+            <input type="text" class="form-control" id="title" name ="name" placeholder="Category title">
           </div>
+          <!--/Tag title-->
+
+          <!-- Tag slug-->
+          <div class="form-group">
+            <label for="slug">Category Slug</label>
+            <input type="text" class="form-control" id="slug" name ="slug" placeholder="Enter tag slug">
+          </div>
+          <!--/Tag slug -->
 
 
-          <div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <!-- /.col -->
+                    </div>
+
+        <div class="col-lg-offset-3 box-footer ">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+
+          <!-- /.row -->
         </div>
+        <!-- /.box-body -->
+        <!-- /editor ends -->
+
       </form>
-
-    </div> <!-- main-content-row-->
-  </section>  <!-- /.main content -->
-</div><!-- Content Wrapper. Contains page content -->
-
+      </div>
+      <!-- /.box -->
+    </section>
+  </div>
 @endsection
 
+@section('footerSection')
+<!-- Select2 -->
+<script src="{{asset('admin/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
 
 @endsection
