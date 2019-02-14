@@ -14,7 +14,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        return view('layouts.admin.tag.show');
+      $tags = tag::all();
+        return view('layouts.admin.tag.show',compact('tags'));
     }
 
     /**
@@ -38,7 +39,6 @@ class TagController extends Controller
       //return $request->all();
       $this->validate($request,[
       'name'=>'required',
-
       'slug'=>'required',
 
 
@@ -51,7 +51,7 @@ class TagController extends Controller
       $tag->slug = $request->slug;
       $tag->save();
       return redirect(route('tags.index'));
-      
+
     }
 
     /**

@@ -35,7 +35,7 @@
         @include('layouts.includes.err_msg')
 
           <!-- form-->
-        <form role="form" action="{{route('post.store')}}" method="post">
+        <form role="form" action="{{route('category.store')}}" method="post">
           {{csrf_field()}}
 
         <div class="box-body">
@@ -64,6 +64,7 @@
 
         <div class="col-lg-offset-3 box-footer ">
               <button type="submit" class="btn btn-primary">Submit</button>
+
             </div>
 
 

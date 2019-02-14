@@ -2,7 +2,7 @@
 
  @section('headSection')
  <!-- Select2 -->
-  <link rel="stylesheet" href="{{asset('admin/bower_components/select2/dist/css/select2.min.css')}}">
+  <!--link rel="stylesheet" href="{{asset('admin/bower_components/select2/dist/css/select2.min.css')}}"-->
  @endsection
 
 
@@ -35,7 +35,7 @@
         @include('layouts.includes.err_msg')
 
           <!-- form-->
-        <form role="form" action="{{route('post.store')}}" method="post">
+        <form role="form" action="{{route('tags.store')}}" method="post">
           {{csrf_field()}}
 
         <div class="box-body">
@@ -46,7 +46,7 @@
               <!-- Tag title-->
           <div class="form-group">
             <label for="title">Tag title</label>
-            <input type="email" class="form-control" id="title" name ="name" placeholder="Enter tag title">
+            <input type="text" class="form-control" id="title" name ="name" placeholder="Enter tag title">
           </div>
           <!--/Tag title-->
 
@@ -64,6 +64,8 @@
 
         <div class="col-lg-offset-3 col-lg-5 box-footer">
               <button type="submit" class="btn btn-primary">Submit</button>
+
+                  <a class="btn btn-warning" href="{{route('tags.index')}}">Back </a>
             </div>
 
 
@@ -81,6 +83,6 @@
 
 @section('footerSection')
 <!-- Select2 -->
-<script src="{{asset('admin/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
+<!--script src="{{asset('admin/bower_components/select2/dist/js/select2.full.min.js')}}"></script-->
 
 @endsection
