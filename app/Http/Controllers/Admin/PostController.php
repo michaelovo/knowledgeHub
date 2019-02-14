@@ -14,8 +14,9 @@ class PostController extends Controller
      */
     public function index()
     {
-
-        return view('layouts.admin.postslayout.show');
+      $posts = post::all();
+      //  return view('layouts.admin.tag.show',compact('posts'));
+        return view('layouts.admin.postslayout.show',compact('posts'));
 
     }
 

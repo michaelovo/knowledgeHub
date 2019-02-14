@@ -31,8 +31,7 @@
         <div class="box-header with-border">
           <h3 class="box-title">Select2</h3>
 
-
-        </div>
+                  </div>
         <!-- /.box-header -->
 
         @include('layouts.includes.err_msg')
@@ -131,6 +130,8 @@
         <!-- /editor ends -->
         <div class="box-footer">
               <button type="submit" class="btn btn-primary">Submit</button>
+              <a class="col-lg-offset-5 btn btn-success" href="{{route('posts.index')}}">Add New </a>
+
 
             </div>
 
