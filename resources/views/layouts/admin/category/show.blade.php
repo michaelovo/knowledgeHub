@@ -2,6 +2,7 @@
 @section('headSection')
 <!-- DataTables -->
   <link rel="stylesheet" href="{{asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+
 @endsection
 @section('main-content')
 <!-- Content Wrapper. Contains page content -->
@@ -51,6 +52,7 @@
                         <th>Sn</th>
                         <th>name</th>
                         <th>Slug</th>
+                        <th>Created</th>
                         <th>Actions</th>
                       </tr>
                       </thead>
@@ -60,9 +62,25 @@
                         <td>{{$loop->index + 1}}</td>
                         <td>{{$category->name}}</td>
                         <td>{{$category->slug}}</td>
-                        <td>Edit ||
+                        <td>{{$category->created_at}}</td>
+                        <td>
+                      <a href="{{route('category.edit',$category->id)}}" class="fa fa-edit text-blue"></a>
 
-                          Delete</td>
+                        <form id="delete-form-{{$category->id}}" method="post" action="{{route('category.destroy',$category->id)}}" style="display:none;">
+                          {{csrf_field()}}
+                          {{method_field('DELETE')}}
+                        </form>
+                          <a href="{{route('category.destroy',$category->id)}}" class="fa fa-fw fa-trash text-red"
+                            onclick="if(confirm('Are You Sure You Want To Delete this ?'))
+                            {
+                              event.preventDefault();
+                              document.getElementById('delete-form-{{$category->id}}').submit();
+                            }
+                            else{
+                              event.preventDefault();
+                            }">
+                          </a>
+                          </td>
                       </tr>
                       @endforeach
 
@@ -103,7 +121,7 @@
    @endsection
    @section('footerSection')
 
-  
+
    <!-- DataTables -->
    <script src="{{asset('admin/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
    <script src="{{asset('admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
