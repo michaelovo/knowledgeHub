@@ -51,6 +51,7 @@
                         <th>Sn</th>
                         <th>name</th>
                         <th>Slug</th>
+                        <th>Created</th>
                         <th>Actions</th>
                       </tr>
                       </thead>
@@ -60,9 +61,25 @@
                         <td>{{$loop->index + 1}}</td>
                         <td>{{$tag->name}}</td>
                         <td>{{$tag->slug}}</td>
-                        <td>Edit ||
+                        <td>{{$tag->created_at}}</td>
+                        <td>
+                      <a href="{{route('tags.edit',$tag->id)}}" class="fa fa-edit text-blue"></a>
 
-                          Delete</td>
+                        <form id="delete-form-{{$tag->id}}" method="post" action="{{route('tags.destroy',$tag->id)}}" style="display:none;">
+                          {{csrf_field()}}
+                          {{method_field('DELETE')}}
+                        </form>
+                          <a href="{{route('tags.destroy',$tag->id)}}" class="fa fa-fw fa-trash text-red"
+                            onclick="if(confirm('Are You Sure You Want To Delete this ?'))
+                            {
+                              event.preventDefault();
+                              document.getElementById('delete-form-{{$tag->id}}').submit();
+                            }
+                            else{
+                              event.preventDefault();
+                            }">
+                          </a>
+                          </td>
                       </tr>
                       @endforeach
 
