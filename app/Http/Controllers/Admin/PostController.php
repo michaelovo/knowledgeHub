@@ -80,7 +80,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $posts=post::where('id',$id)->first();
+          return view('layouts.admin.postslayout.edit',compact('posts'));
     }
 
     /**
@@ -92,7 +93,26 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        //To validate before updating
+        $this->validate($request,[
+        'title'=>'required',
+        'subtitle'=>'required',
+        'slug'=>'required',
+        'body'=>'required'
+
+
+      ]);
+
+        $post = Post::find($id);
+        $post->title = $request->title;
+        $post->subtitle = $request->subtitle;
+        $post->slug = $request->slug;
+        $post->body = $request->body;
+        $post->update();// 'save()' will also work
+        
+        return redirect(route('post.index'));
+
     }
 
     /**
