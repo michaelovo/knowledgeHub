@@ -67,9 +67,24 @@
                         <td>{{$post->slug}}</td>
                         <!--td>{{$post->body}}</td-->
                         <td>{{$post->created_at}}</td>
-                        <td>Edit ||
+                        <td>
+                      <a href="" class="fa fa-edit text-blue"></a>
 
-                          Delete</td>
+                        <form id="delete-form-{{$post->id}}" method="post" action="{{route('post.destroy',$post->id)}}" style="display:none;">
+                          {{csrf_field()}}
+                          {{method_field('DELETE')}}
+                        </form>
+                          <a href="{{route('post.destroy',$post->id)}}" class="fa fa-fw fa-trash text-red"
+                            onclick="if(confirm('Are You Sure You Want To Delete this ?'))
+                            {
+                              event.preventDefault();
+                              document.getElementById('delete-form-{{$post->id}}').submit();
+                            }
+                            else{
+                              event.preventDefault();
+                            }">
+                          </a>
+                          </td>
                       </tr>
                       @endforeach
 

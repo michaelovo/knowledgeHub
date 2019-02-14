@@ -26,25 +26,25 @@
      <!-- sidebar menu: : style can be found in sidebar.less -->
      <ul class="sidebar-menu" data-widget="tree">
        <li class="header">MAIN NAVIGATION</li>
-       <li><a href="#" class="nav-link"><i class="fa fa-th"></i> <span>Dashboard</span></a></li>
+       <li><a href="#" class="nav-link"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 
        <li class="treeview">
          <a href="#">
-           <i class="fa fa-edit text-blue"></i> <span>Blogs</span>
+           <i class="fa fa-folder text-blue"></i> <span>Blogs</span>
            <span class="pull-right-container">
              <i class="fa fa-angle-left pull-right"></i>
            </span>
          </a>
          <ul class="treeview-menu">
-           <li><a href="{{route('post.index')}}"><i class="fa fa-circle-o"></i> Posts</a></li>
-           <li><a href="{{route('category.index')}}"><i class="fa fa-circle-o"></i> Category</a></li>
-           <li><a href="{{route('tags.index')}}"><i class="fa fa-circle-o"></i> Tags</a></li>
+           <li><a href="{{route('post.index')}}"><i class="fa fa-eye"></i> Posts</a></li>
+           <li><a href="{{route('category.index')}}"><i class="fa fa-eye"></i> Category</a></li>
+           <li><a href="{{route('tags.index')}}"><i class="fa fa-eye"></i> Tags</a></li>
          </ul>
        </li>
 
        <li class="treeview">
          <a href="#">
-           <i class="fa fa-cogs text-green"></i> <span>Management</span>
+           <i class="fa fa-cog text-green"></i> <span>Management</span>
            <span class="pull-right-container">
              <i class="fa fa-angle-left pull-right"></i>
            </span>
