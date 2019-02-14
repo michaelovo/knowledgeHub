@@ -1,4 +1,8 @@
 @extends('layouts.admin.app')
+@section('headSection')
+<!-- DataTables -->
+  <link rel="stylesheet" href="{{asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+@endsection
 @section('main-content')
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -96,4 +100,29 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+   @endsection
+   @section('footerSection')
+
+   <!-- DataTables -->
+   <script src="{{asset('admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+   <script src="{{asset('admin/plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
+
+   <!-- DataTables -->
+   <script src="{{asset('admin/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+   <script src="{{asset('admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+   <script>
+   $(function () {
+     $('#example1').DataTable()
+/*
+     $('#example2').DataTable({
+       'paging'      : true,
+       'lengthChange': false,
+       'searching'   : false,
+       'ordering'    : true,
+       'info'        : true,
+       'autoWidth'   : false
+     })
+     */
+   })
+   </script>
    @endsection
