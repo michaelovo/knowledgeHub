@@ -130,7 +130,7 @@
         <!-- /editor ends -->
         <div class="box-footer">
               <button type="submit" class="btn btn-primary">Submit</button>
-              <a class="col-lg-offset-5 btn btn-success" href="{{route('posts.index')}}">Add New </a>
+              <a class="col-lg-offset-5 btn btn-warning" href="{{route('post.index')}}">Back </a>
 
 
             </div>

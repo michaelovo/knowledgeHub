@@ -25,7 +25,7 @@
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Title</h3>
+          <h3 class="box-title">Posts</h3>
           <a class="col-lg-offset-5 btn btn-success" href="{{route('post.create')}}">Add New </a>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
@@ -49,11 +49,15 @@
                       <thead>
                       <tr>
                         <th>Sn</th>
-                        <th>name</th>
+                        <th>Title</th>
+                        <th>Subtitle</th>
                         <th>Slug</th>
+                        <!--th>Contents</th-->
+                          <th>Created at</th>
                         <th>Actions</th>
                       </tr>
                       </thead>
+
                       @foreach($posts as $post)
 
                       <tr>
@@ -61,7 +65,8 @@
                         <td>{{$post->title}}</td>
                         <td>{{$post->subtitle}}</td>
                         <td>{{$post->slug}}</td>
-                        <td>{{$post->body}}</td>
+                        <!--td>{{$post->body}}</td-->
+                        <td>{{$post->created_at}}</td>
                         <td>Edit ||
 
                           Delete</td>
@@ -105,26 +110,22 @@
    @endsection
    @section('footerSection')
 
-   <!-- DataTables -->
-   <script src="{{asset('admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
-   <script src="{{asset('admin/plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
-
-   <!-- DataTables -->
+     <!-- DataTables -->
    <script src="{{asset('admin/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
    <script src="{{asset('admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
    <script>
-   $(function () {
-     $('#example1').DataTable()
+     $(function () {
+       $('#example1').DataTable()
 /*
-     $('#example2').DataTable({
-       'paging'      : true,
-       'lengthChange': false,
-       'searching'   : false,
-       'ordering'    : true,
-       'info'        : true,
-       'autoWidth'   : false
+       $('#example2').DataTable({
+         'paging'      : true,
+         'lengthChange': false,
+         'searching'   : false,
+         'ordering'    : true,
+         'info'        : true,
+         'autoWidth'   : false
+       })
+       */
      })
-     */
-   })
    </script>
    @endsection
