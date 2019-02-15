@@ -82,7 +82,7 @@
                 <!-- publish -->
                 <div class="checkbox pull-left">
                     <label>
-                      <input type="checkbox" name="status" id="status" @if ($posts->status == 1)checked @endif> Publish
+                      <input type="checkbox" value="1" name="status" id="status" @if ($posts->status == 1){{'checked'}} @endif> Publish
                     </label>
                   </div>
                 <!-- /publish -->
@@ -91,7 +91,8 @@
              <br>
              <div class="form-group" style="margin-top:18px;">   <!--Tag select -->
                    <label>Select Tags</label>
-                   <select class="form-control select2 select2-hidden-accessible" multiple=""
+                   <!--'tags[]' is the model relationship name defined in user model--->
+                   <select class="form-control select2 select2-hidden-accessible" name="tags[]" multiple=""
                    data-placeholder="Select Tags" style="width: 100%;" tabindex="-1" aria-hidden="true">
                    @foreach($tag as $tag)
                      <option value="{{$tag->id}}">{{$tag->name}}</option>
@@ -103,7 +104,8 @@
 
              <div class="form-group" style="margin-top:18px;"> <!--Category select -->
                    <label>Select Categories</label>
-                   <select class="form-control select2 select2-hidden-accessible" multiple=""
+                    <!--'category[]' is the model relationship name defined in user model--->
+                   <select class="form-control select2 select2-hidden-accessible" name="category[]" multiple=""
                    data-placeholder="Select Categories" style="width: 100%;" tabindex="-1" aria-hidden="true">
                    @foreach($category as $category)
                      <option value="{{$category->id}}">{{$category->name}}</option>

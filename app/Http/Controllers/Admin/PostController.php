@@ -61,7 +61,12 @@ class PostController extends Controller
         $post->subtitle = $request->subtitle;
         $post->slug = $request->slug;
         $post->body = $request->body;
-        $post->save();
+        $post->status = $request->status;
+        $post->save(); //Note: this line must come before the next two else error when submitting to db
+        //$post->tags()->sync($request->tags);// 'tags' is the relationship name defined in the model
+        $post->tags()->sync($request->tags);// 'tags' is the relationship name defined in the 'user' model
+        $post->category()->sync($request->category);// 'category' is the relationship name defined in the 'user' model
+
         return redirect(route('post.index'));
 
     }
@@ -101,7 +106,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        //return $request->all();
         //To validate before updating
         $this->validate($request,[
         'title'=>'required',
@@ -117,7 +122,10 @@ class PostController extends Controller
         $post->subtitle = $request->subtitle;
         $post->slug = $request->slug;
         $post->body = $request->body;
+        $post->status = $request->status;
         $post->update();// 'save()' will also work
+        $post->tags()->sync($request->tags);// 'tags' is the relationship name defined in the 'user' model
+        $post->category()->sync($request->category);// 'category' is the relationship name defined in the 'user' model
 
         return redirect(route('post.index'));
 
