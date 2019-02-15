@@ -72,27 +72,48 @@
             <!-- /.col -->
             <div class="col-md-6">
 
-              <div class="form-group">
-                <label for="exampleInputFile">File input</label>
-                <input type="file" id="exampleInputFile" name="image">
+              <br>
+              <div class="form-group"><!--file upload -->
+                <div class="pull-right"><!--pull right -->
+                  <label for="exampleInputFile">File input</label>
+                  <input type="file" id="exampleInputFile" name="image">
+                   <p class="help-block">Choose a file.</p>
+                </div><!--/pull right -->
 
-               <p class="help-block">Choose a file.</p>
-             </div>
-               <!-- /file upload -->
+                <!-- publish -->
+                <div class="checkbox pull-left">
+                    <label>
+                      <input type="checkbox" name="status" id="status"> Publish
+                    </label>
+                  </div>
+                <!-- /publish -->
+             </div><!-- /file upload -->
 
-             <!-- publish -->
-             <div class="checkbox">
-                 <label>
-                   <input type="checkbox" name="status" id="status"> Publish
-                 </label>
-               </div>
+             <br>
+             <div class="form-group" style="margin-top:18px;">   <!--Tag select -->
+                   <label>Select Tags</label>
+                   <select class="form-control select2 select2-hidden-accessible" multiple=""
+                   data-placeholder="Select Tags" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                   @foreach($tag as $tag)
+                     <option value="{{$tag->id}}">{{$tag->name}}</option>
+                    @endforeach
+                   </select>
+             </div> <!--/Tag select -->
 
 
 
-             <!-- /publish -->
+             <div class="form-group" style="margin-top:18px;"> <!--Category select -->
+                   <label>Select Categories</label>
+                   <select class="form-control select2 select2-hidden-accessible" multiple=""
+                   data-placeholder="Select Categories" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                   @foreach($category as $category)
+                     <option value="{{$category->id}}">{{$category->name}}</option>
+                    @endforeach
 
-              <!-- /.form-group -->
-            </div>
+                   </select>
+             </div><!--/Category select -->
+
+            </div><!-- /.form-group -->
             <!-- /.col -->
           </div>
 
@@ -150,7 +171,7 @@
 
 @section('footerSection')
 <!-- Select2 -->
-<!--script src="{{asset('admin/bower_components/select2/dist/js/select2.full.min.js')}}"></script-->
+<script src="{{asset('admin/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
 <!-- CK Editor -->
 <script src="{{asset('admin/bower_components/ckeditor/ckeditor.js')}}"></script>
 
@@ -162,5 +183,10 @@
     //bootstrap WYSIHTML5 - text editor
     //$('.textarea').wysihtml5()
   })
+</script>
+<script>
+$(document).ready(function(){
+  $('.select2').select2();
+});
 </script>
 @endsection

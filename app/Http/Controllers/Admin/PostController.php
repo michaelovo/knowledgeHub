@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Model\user\post;
+use App\Model\user\tag;
+use App\Model\user\category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,6 +17,7 @@ class PostController extends Controller
     public function index()
     {
       $posts = post::all();
+
       //  return view('layouts.admin.tag.show',compact('posts'));
         return view('layouts.admin.postslayout.show',compact('posts'));
 
@@ -27,7 +30,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('layouts.admin.postslayout.post');
+        $tag = tag::all();
+        $category = category::all();
+        return view('layouts.admin.postslayout.post',compact('tag','category'));
     }
 
     /**
@@ -81,7 +86,10 @@ class PostController extends Controller
     public function edit($id)
     {
         $posts=post::where('id',$id)->first();
-          return view('layouts.admin.postslayout.edit',compact('posts'));
+        $tag = tag::all();
+        $category = category::all();
+        return view('layouts.admin.postslayout.edit',compact('tag','category','posts'));
+          //return view('layouts.admin.postslayout.edit',compact('posts'));
     }
 
     /**
@@ -110,7 +118,7 @@ class PostController extends Controller
         $post->slug = $request->slug;
         $post->body = $request->body;
         $post->update();// 'save()' will also work
-        
+
         return redirect(route('post.index'));
 
     }

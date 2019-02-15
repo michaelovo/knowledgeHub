@@ -1,7 +1,8 @@
 @extends('layouts.admin.app')
 
  @section('headSection')
- 
+ <!-- Select2 -->
+  <link rel="stylesheet" href="{{asset('admin/bower_components/select2/dist/css/select2.min.css')}}">
  @endsection
 
 
@@ -70,25 +71,47 @@
             </div>
             <!-- /.col -->
             <div class="col-md-6">
+              <br>
+              <div class="form-group"><!--file upload -->
+                <div class="pull-right"><!--pull right -->
+                  <label for="exampleInputFile">File input</label>
+                  <input type="file" id="exampleInputFile" name="image">
+                   <p class="help-block">Choose a file.</p>
+                </div><!--/pull right -->
 
-              <div class="form-group">
-                <label for="exampleInputFile">File input</label>
-                <input type="file" id="exampleInputFile" name="image">
+                <!-- publish -->
+                <div class="checkbox pull-left">
+                    <label>
+                      <input type="checkbox" name="status" id="status" @if ($posts->status == 1)checked @endif> Publish
+                    </label>
+                  </div>
+                <!-- /publish -->
+             </div><!-- /file upload -->
 
-               <p class="help-block">Choose a file.</p>
-             </div>
-               <!-- /file upload -->
+             <br>
+             <div class="form-group" style="margin-top:18px;">   <!--Tag select -->
+                   <label>Select Tags</label>
+                   <select class="form-control select2 select2-hidden-accessible" multiple=""
+                   data-placeholder="Select Tags" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                   @foreach($tag as $tag)
+                     <option value="{{$tag->id}}">{{$tag->name}}</option>
+                    @endforeach
+                   </select>
+             </div> <!--/Tag select -->
 
-             <!-- publish -->
-             <div class="checkbox">
-                 <label>
-                   <input type="checkbox" name="status" id="status" @if ($posts->status == 1)checked @endif> Publish
-                 </label>
-               </div>
 
 
+             <div class="form-group" style="margin-top:18px;"> <!--Category select -->
+                   <label>Select Categories</label>
+                   <select class="form-control select2 select2-hidden-accessible" multiple=""
+                   data-placeholder="Select Categories" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                   @foreach($category as $category)
+                     <option value="{{$category->id}}">{{$category->name}}</option>
+                    @endforeach
 
-             <!-- /publish -->
+                   </select>
+             </div><!--/Category select -->
+
 
               <!-- /.form-group -->
             </div>
@@ -116,6 +139,9 @@
           </div>
           <!-- /editor header -->
           <!-- editor body -->
+
+
+
           <div class="box-body pad">
 
               <textarea id="editor1" name ="body" placeholder="Place some text here" value="{{$posts->body}}"
@@ -151,6 +177,8 @@
 @section('footerSection')
 <!-- CK Editor -->
 <script src="{{asset('admin/bower_components/ckeditor/ckeditor.js')}}"></script>
+<!-- Select2 -->
+<script src="{{asset('admin/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
 
 <script>
   $(function () {
@@ -160,5 +188,11 @@
     //bootstrap WYSIHTML5 - text editor
     //$('.textarea').wysihtml5()
   })
+</script>
+
+<script>
+$(document).ready(function(){
+  $('.select2').select2();
+});
 </script>
 @endsection
