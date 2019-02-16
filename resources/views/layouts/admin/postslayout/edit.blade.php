@@ -152,8 +152,8 @@
         <div class="box box-info">
           <!-- editor header-->
           <div class="box-header">
-            <h3 class="box-title">CK Editor
-              <small>Advanced and full of features</small>
+            <h3 class="box-title">Write Post body here
+              <small>Fast and simple</small>
             </h3>
 
             <!-- tools box -->
@@ -185,7 +185,7 @@
         <!-- /editor ends -->
         <div class="box-footer">
               <button type="submit" class="btn btn-primary">Submit</button>
-              <a class="col-lg-offset-5 btn btn-warning" href="{{route('post.index')}}">Back </a>
+              <a class="btn btn-warning" href="{{route('post.index')}}">Back </a>
 
 
             </div>
@@ -206,6 +206,9 @@
 @section('footerSection')
 <!-- CK Editor -->
 <script src="{{asset('admin/bower_components/ckeditor/ckeditor.js')}}"></script>
+<!-- CK Editor online full package-->
+<!--script src="//cdn.ckeditor.com/4.11.2/full/ckeditor.js"></script-->
+
 <!-- Select2 -->
 <script src="{{asset('admin/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
 
