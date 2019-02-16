@@ -90,9 +90,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $posts=post::where('id',$id)->first();
-        $tag = tag::all();
-        $category = category::all();
+        $posts=post::with('tags','category')->where('id',$id)->first(); //'tags n category' model relationship name defined
+        $tag = tag::all();//allows editing of tags on post 'edit' file
+        $category = category::all();//allows editing of category on post 'edit' file
         return view('layouts.admin.postslayout.edit',compact('tag','category','posts'));
           //return view('layouts.admin.postslayout.edit',compact('posts'));
     }

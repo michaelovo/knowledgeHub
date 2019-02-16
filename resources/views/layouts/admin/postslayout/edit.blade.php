@@ -89,17 +89,31 @@
              </div><!-- /file upload -->
 
              <br>
+
              <div class="form-group" style="margin-top:18px;">   <!--Tag select -->
                    <label>Select Tags</label>
                    <!--'tags[]' is the model relationship name defined in user model--->
                    <select class="form-control select2 select2-hidden-accessible" name="tags[]" multiple=""
                    data-placeholder="Select Tags" style="width: 100%;" tabindex="-1" aria-hidden="true">
+
+
                    @foreach($tag as $tag)
-                     <option value="{{$tag->id}}">{{$tag->name}}</option>
+
+                   <!--To auto-hilight selected options from db in frontend-->
+                     <option value="{{$tag->id}}"
+                        @foreach($posts->tags as $postsTag)
+                          @if($postsTag->id == $tag->id)
+                            selected
+                          @endif
+                        @endforeach
+                       >
+                       {{$tag->name}}
+                     </option>
+                     <!-- /To auto-hilight selected option from db in frontend -->
+
                     @endforeach
                    </select>
              </div> <!--/Tag select -->
-
 
 
              <div class="form-group" style="margin-top:18px;"> <!--Category select -->
@@ -107,8 +121,21 @@
                     <!--'category[]' is the model relationship name defined in user model--->
                    <select class="form-control select2 select2-hidden-accessible" name="category[]" multiple=""
                    data-placeholder="Select Categories" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                   @foreach($category as $category)
-                     <option value="{{$category->id}}">{{$category->name}}</option>
+
+                     @foreach($category as $category)
+
+                   <!--To auto-hilight selected options from db in frontend -->
+                         <option value="{{$category->id}}"
+                            @foreach($posts->category as $postsCategory)
+                              @if($postsCategory->id == $category->id)
+                                selected
+                              @endif
+                            @endforeach
+                           >
+                           {{$category->name}}
+                         </option>
+                         <!-- /To auto-hilight selected option from db in frontend -->
+
                     @endforeach
 
                    </select>
