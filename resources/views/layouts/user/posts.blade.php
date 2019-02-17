@@ -7,6 +7,12 @@
 
 @section('main-content')
 <!-- Post Content -->
+
+<div id="fb-root"></div>
+<!-- facebook comments system header -->
+<script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=2137804462932884&autoLogAppEvents=1">
+</script>
+<!-- /facebook comments system header-->
  <article>
    <div class="container">
      <div class="row">
@@ -27,7 +33,7 @@
          {!!htmlspecialchars_decode($slug->body)!!}
          <!--This enabled the text to be display in html form. pls take note of the single '{}' and '!!'-->
           <!--To display post body-->
-          
+
          <h5>Tags</h5>
          <!--To display Tag name-->
          @foreach($slug->tags as $tag)
@@ -37,6 +43,9 @@
          @endforeach
           <!--/To display Tag name-->
      </div>
+     <!-- facebook comments system footer-->
+     <div class="fb-comments" data-href="{{Request::url()}}" data-numposts="5"></div>
+     <!-- /facebook comments system footer -->
    </div>
  </article>
 
