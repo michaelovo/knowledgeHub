@@ -13,7 +13,9 @@ Route::get('/posts', function () {
 // USER ENDS
 Route::group(['namespace' => 'User'],function(){
   Route::get('/','HomeController@index')->name('blogs');
-  Route::get('posts','PostController@index')->name('posts');
+  Route::get('posts/{slug}','PostController@posts')->name('posts');
+//  Route::get('posts/{slug}','PostController@posts')->name('posts');
+  //"?" means the {slug} is not required
 });
 
 
