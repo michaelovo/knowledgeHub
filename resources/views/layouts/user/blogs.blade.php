@@ -26,10 +26,12 @@
         @endforeach
       <hr>
 
-      <!-- Pager -->
+      <!-- Laravel Pagination -->
       <div class="clearfix">
-        <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+        {{$slug->links()}}
+        <!-- "slug" as defined in the index function of the HomeController -->
       </div>
+      <!--/ Laravel Pagination -->
     </div>
   </div>
 </div>
