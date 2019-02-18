@@ -205,9 +205,13 @@
 
 @section('footerSection')
 <!-- CK Editor -->
-<script src="{{asset('admin/bower_components/ckeditor/ckeditor.js')}}"></script>
+<!--script src="{{asset('admin/bower_components/ckeditor/ckeditor.js')}}"></script-->
 <!-- CK Editor online full package-->
 <!--script src="//cdn.ckeditor.com/4.11.2/full/ckeditor.js"></script-->
+
+<!-- CK Editor builder-->
+<script src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
+
 
 <!-- Select2 -->
 <script src="{{asset('admin/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
