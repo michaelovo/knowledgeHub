@@ -6,8 +6,8 @@
 @endsection
 
 @section('bg-image',asset('user/img/post-bg.jpg'))
-@section('heading',$slug->title)
-@section('sub-heading',$slug->subtitle)
+@section('heading',$post->title)
+@section('sub-heading',$post->subtitle)
 
 @section('main-content')
 <!-- Post Content -->
@@ -22,28 +22,28 @@
      <div class="row">
 
        <div class="col-lg-8 col-md-10 mx-auto">
-         <small>Created {{$slug->created_at->diffforhumans()}}</small>
+         <small>Created {{$post->created_at->diffforhumans()}}</small>
          <!--'diffforhumans' allows displays in human readable form -->
 
-          <!--To display Tag category-->
-         @foreach($slug->category as $category)
-          <small class="float-right" style="margin-right:5px; border-radius:5px; border:1px solid gray;padding:5px;">
+          <!--To display Tag category 'category' is the Relationship name in post model-->
+         @foreach($post->category as $category)
+          <a href="{{ route('category', $category->slug) }}"><small class="float-right" style="margin-right:5px; border-radius:5px; border:1px solid gray;padding:5px;">
             #{{$category->name}}
-          </small>
+          </small></a>
          @endforeach
           <!--/To display Tag category-->
 
            <!--To display post body-->
-         {!!htmlspecialchars_decode($slug->body)!!}
+         {!!htmlspecialchars_decode($post->body)!!}
          <!--This enabled the text to be display in html form. pls take note of the single '{}' and '!!'-->
           <!--To display post body-->
 
          <h5>Tags</h5>
-         <!--To display Tag name-->
-         @foreach($slug->tags as $tag)
-        <small style="margin-right:20px; border-radius:5px; border:1px solid gray;padding:5px;">
+         <!--To display Tag 'tags' is the Relationship name in post model  -->
+         @foreach($post->tags as $tag)
+        <a href="{{ route('tags', $tag->slug) }}"><small class="float-left" style="margin-right:20px; border-radius:5px; border:1px solid gray;padding:5px;">
             #{{$tag->name}}
-          </small>
+          </small> </a>
          @endforeach
           <!--/To display Tag name-->
      </div>

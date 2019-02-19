@@ -16,7 +16,7 @@ class post extends Model
       return $this->belongsToMany('App\Model\user\category','category_posts')->withTimestamps();// "post_tag" the table model name
     }
 
-    // To display post content body to user frontend
+    // To display post content body to user frontend via slug. 'slug' must be dsame as in db
     public function getRouteKeyName(){
       return 'slug';
     }
