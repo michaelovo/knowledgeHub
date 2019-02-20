@@ -5,7 +5,11 @@
 <link href="{{asset('user/css/prism.css')}}" rel="stylesheet" type="text/css">
 @endsection
 
-@section('bg-image',asset('user/img/post-bg.jpg'))
+<!---To display uploaded image from the posts db table-. Then after go to cmd
+  and type 'php artisan storage:link' To link the [public] directory and 
+  the [storage/app/public] subdirectory, else image won't be visible.
+--->
+@section('bg-image',Storage::disk('local')->url($post->image))
 @section('heading',$post->title)
 @section('sub-heading',$post->subtitle)
 

@@ -36,7 +36,7 @@
         @include('layouts.includes.err_msg')
 
           <!-- form-->
-          <form role="form" action="{{route('post.update',$posts->id)}}" method="post">
+          <form role="form" action="{{route('post.update',$posts->id)}}" method="post" enctype="multipart/form-data">
             {{csrf_field()}}
             {{method_field('PUT')}}
             <!--eithr 'PUT' or 'PATCH' will for the above method-->

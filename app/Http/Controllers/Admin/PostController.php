@@ -48,15 +48,19 @@ class PostController extends Controller
         'title'=>'required',
         'subtitle'=>'required',
         'slug'=>'required',
-      //  'image'=>'required',
+        'image'=>'required',
         //'status'=>'required',
         'body'=>'required'
-
-
       ]);
-        //
+
+      // To test for image/file availability before upload
+        if($request->hasFile('image')){
+          //To store uploaded file. directory'storage/app/public/images
+        $imageName = $request->image->store('public/images');//'public' is default, bt '/images' is user defined
+        }
 
         $post = new Post;
+        $post->image = $imageName;
         $post->title = $request->title;
         $post->subtitle = $request->subtitle;
         $post->slug = $request->slug;
@@ -112,12 +116,18 @@ class PostController extends Controller
         'title'=>'required',
         'subtitle'=>'required',
         'slug'=>'required',
+        'image'=>'required',
         'body'=>'required'
-
-
       ]);
+      // To test for image/file availability before upload
+        if($request->hasFile('image')){
+        //  return $request->image->getClientOriginalName(); // to get original image/file name
+          //To store uploaded file. directory'storage/app/public/images
+        $imageName = $request->image->store('public/images');//'public' is default, bt '/images' is user defined
+        }
 
         $post = Post::find($id);
+        $post->image = $imageName;
         $post->title = $request->title;
         $post->subtitle = $request->subtitle;
         $post->slug = $request->slug;
