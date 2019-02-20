@@ -56,3 +56,7 @@ Route::get('/admin/category', function () {
 Route::get('/admin/table', function () {
     return view('layouts.admin.table');
 })->name('table');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
