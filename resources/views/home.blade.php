@@ -1,23 +1,33 @@
-@extends('layouts.app')
+@extends('layouts/user/app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+@section('head')
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+@endsection
 
-                    You are logged in!
-                </div>
-            </div>
+<!---To display uploaded image from the posts db table-. Then after go to cmd
+  and type 'php artisan storage:link' To link the [public] directory and
+  the [storage/app/public] subdirectory, else image won't be visible.
+--->
+@section('bg-image',asset('user/img/contact-bg.jpg'))
+@section('heading','Welcome')
+@section('sub-heading',"")
+
+@section('main-content')
+<!-- Post Content -->
+
+
+ <article>
+   <div class="container">
+     <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+
         </div>
-    </div>
-</div>
+     </div>
+   </div>
+ </article>
+
+ <hr>
+
+@endsection
+@section('footer')
 @endsection

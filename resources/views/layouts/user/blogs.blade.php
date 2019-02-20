@@ -7,7 +7,7 @@
 @section('main-content')
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
+    <div class="col-lg-6 col-md-12 mx-auto">
       <!--'$slug' as defined in HomeController@index-->
         @foreach($slug as $post)
       <div class="post-preview">
@@ -25,7 +25,7 @@
           {{$post->created_at->diffforhumans()}}</p>
       </div>
         @endforeach
-      <hr>
+
 
       <!-- Laravel Pagination -->
       <div class="clearfix">
@@ -36,6 +36,5 @@
     </div>
   </div>
 </div>
-
-<hr>
+  <hr>
 @endsection
