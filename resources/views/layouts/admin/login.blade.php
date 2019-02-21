@@ -37,10 +37,12 @@
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
-    
-      @include('layouts.includes.err_msg')
 
-    <form action="{{route('login')}}" method="post">
+      @include('layouts.includes.err_msg')
+      <!--'admin.login' the 'admin' here is the GUARD name defined for the admin in
+      "config/auth, model/admin/model, controllers/admin/auth/logincontroller"
+       ------->
+    <form action="{{route('admin.login')}}" method="post">
         @csrf
       <div class="form-group has-feedback">
         <input type="email" class="form-control" name="email" placeholder="Email">
