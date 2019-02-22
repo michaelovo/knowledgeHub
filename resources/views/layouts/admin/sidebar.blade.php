@@ -60,7 +60,28 @@
 
        <!--li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li-->
        <li><a href="#"><i class="fa fa-circle-o text-info"></i> <span>Profile</span></a></li>
-       <li><a href="#"><i class="fa fa-power-off text-red"></i> <span>Logout</span></a></li>
+       <li>
+
+         @if(Auth::guest())
+               <a href="{{route('admin.login')}}">Login</a>
+         @else
+
+               <a href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+                           <i class="fa fa-power-off text-red"></i>
+             {{ __('Logout') }}
+               </a>
+
+               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+             @csrf
+         </form>
+
+         @endif
+
+
+
+       </li>
      </ul>
    </section>
    <!-- /.sidebar -->
