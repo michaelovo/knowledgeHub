@@ -73,14 +73,18 @@
 
           <!-- Assign Role-->
           <div class="form-group">
-            <label for="role">Assign Role</label>
-            <select class="form-control" id="role" name ="role">
-              <option value="0">Editor</option>
-              <option value="1">Publisher</option>
-              <option value="2">Writer</option>
-            </select>
+            <div class="row">
+             @foreach($roles as $role)
+                <div class="col-lg-3">
+                  <div class="checkbox"><!--'role[]'allows users to be assign more than one role as selected --->
+                    <label><input type="checkbox" name ="role[]" value="{{$role->id}}">
+                      {{$role->name}}
+                    </label>
+                </div>
+              </div>
+              @endforeach
           </div>
-          <!--/Assign Role -->
+
 
             </div>
             <!-- /.col -->
@@ -91,6 +95,8 @@
 
                   <a class="btn btn-warning" href="{{route('user.index')}}">Back </a>
             </div>
+
+          </div>  <!--/Assign Role -->
 
 
           <!-- /.row -->

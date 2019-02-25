@@ -86,7 +86,7 @@ class RoleController extends Controller
     {
       //return $request->all();
       $this->validate($request,[
-      'name'=>'required|max:20|unique:roles'
+      'name'=>'required|max:20'
 
     ]);
 
