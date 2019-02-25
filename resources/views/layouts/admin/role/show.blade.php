@@ -63,7 +63,7 @@
                         <td>
                       <a href="{{route('role.edit',$role->id)}}" class="fa fa-edit text-blue"></a>
 
-                        <form id="delete-form-{{$role->id}}" method="post" action="{{route('tags.destroy',$role->id)}}" style="display:none;">
+                        <form id="delete-form-{{$role->id}}" method="post" action="{{route('role.destroy',$role->id)}}" style="display:none;">
                           {{csrf_field()}}
                           {{method_field('DELETE')}}
                         </form>

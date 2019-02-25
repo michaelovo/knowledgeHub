@@ -35,7 +35,7 @@
         @include('layouts.includes.err_msg')
 
           <!-- form-->
-        <form role="form" action="{{route('tags.update',$tag->id)}}" method="post">
+        <form role="form" action="{{route('role.update',$roles->id)}}" method="post">
           {{csrf_field()}}
           {{method_field('PUT')}}
           <!--eithr 'PUT' or 'PATCH' will for the above method-->
@@ -45,21 +45,13 @@
             <div class="col-lg-offset-3 col-md-4">
 
 
-              <!-- Tag title-->
+              <!-- Role Name-->
           <div class="form-group">
-            <label for="title">Tag title</label>
-            <input type="text" class="form-control" id="title" name ="name"
-            value="{{$tag->name}}" placeholder="Enter tag title">
+            <label for="title">Role Name</label>
+            <input type="text" class="form-control" id="title" name ="name" placeholder="Role Name" value="{{$roles->name}}">
           </div>
-          <!--/Tag title-->
+          <!--/Role Name-->
 
-          <!-- Tag slug-->
-          <div class="form-group">
-            <label for="slug">Tag Slug</label>
-            <input type="text" class="form-control" id="slug" name ="slug"
-            value="{{$tag->slug}}" placeholder="Enter tag slug">
-          </div>
-          <!--/Tag slug -->
 
 
             </div>
@@ -69,7 +61,7 @@
         <div class="col-lg-offset-3 col-lg-5 box-footer">
               <button type="submit" class="btn btn-primary">Submit</button>
 
-                  <a class="btn btn-warning" href="{{route('tags.index')}}">Back </a>
+                  <a class="btn btn-warning" href="{{route('role.index')}}">Back </a>
             </div>
 
 

@@ -44,7 +44,7 @@
 
        <li class="treeview">
          <a href="#">
-           <i class="fa fa-cog text-green"></i> <span>Management</span>
+           <i class="fa fa-cogs text-green"></i> <span>Management</span>
            <span class="pull-right-container">
              <i class="fa fa-angle-left pull-right"></i>
            </span>
@@ -52,8 +52,8 @@
          <ul class="treeview-menu">
 
 
-           <li><a href="{{route('user.index')}}"><i class="fa fa-users"></i> Users</a></li>
-            <li><a href="{{route('role.index')}}"><i class="fa fa-users"></i> Roles</a></li>
+           <li><a href="{{route('user.index')}}"><i class="fa fa-users text-orange"></i> Users</a></li>
+            <li><a href="{{route('role.index')}}"><i class="fa fa-gear text-orange"></i> Roles</a></li>
 
          </ul>
        </li>
