@@ -53,6 +53,7 @@
 
 
            <li><a href="{{route('user.index')}}"><i class="fa fa-users"></i> Users</a></li>
+            <li><a href="{{route('role.index')}}"><i class="fa fa-users"></i> Roles</a></li>
 
          </ul>
        </li>

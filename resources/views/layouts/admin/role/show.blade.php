@@ -25,8 +25,8 @@
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Users</h3>
-          <a class="col-lg-offset-5 btn btn-success" href="{{route('user.create')}}">Add New </a>
+          <h3 class="box-title">Roles</h3>
+          <a class="col-lg-offset-5 btn btn-success" href="{{route('role.create')}}">Add New </a>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                     title="Collapse">
@@ -49,31 +49,29 @@
                       <thead>
                       <tr>
                         <th>Sn</th>
-                        <th>name</th>
-                        <th>Slug</th>
+                        <th>Role name</th>
                         <th>Created</th>
                         <th>Actions</th>
                       </tr>
                       </thead>
-                      @foreach($users as $user)
+                      @foreach($roles as $role)
 
                       <tr>
                         <td>{{$loop->index + 1}}</td>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->slug}}</td>
-                        <td>{{$user->created_at}}</td>
+                        <td>{{$role->name}}</td>
+                        <td>{{$role->created_at}}</td>
                         <td>
-                      <a href="{{route('user.edit',$user->id)}}" class="fa fa-edit text-blue"></a>
+                      <a href="{{route('role.edit',$role->id)}}" class="fa fa-edit text-blue"></a>
 
-                        <form id="delete-form-{{$user->id}}" method="post" action="{{route('user.destroy',$user->id)}}" style="display:none;">
+                        <form id="delete-form-{{$role->id}}" method="post" action="{{route('tags.destroy',$role->id)}}" style="display:none;">
                           {{csrf_field()}}
                           {{method_field('DELETE')}}
                         </form>
-                          <a href="{{route('user.destroy',$user->id)}}" class="fa fa-fw fa-trash text-red"
+                          <a href="{{route('tags.destroy',$role->id)}}" class="fa fa-fw fa-trash text-red"
                             onclick="if(confirm('Are You Sure You Want To Delete this ?'))
                             {
                               event.preventDefault();
-                              document.getElementById('delete-form-{{$user->id}}').submit();
+                              document.getElementById('delete-form-{{$role->id}}').submit();
                             }
                             else{
                               event.preventDefault();

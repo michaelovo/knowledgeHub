@@ -35,7 +35,7 @@
         @include('layouts.includes.err_msg')
 
           <!-- form-->
-        <form role="form" action="{{route('user.store')}}" method="post">
+        <form role="form" action="{{route('role.store')}}" method="post">
           {{csrf_field()}}
 
         <div class="box-body">
@@ -43,44 +43,14 @@
             <div class="col-lg-offset-3 col-md-4">
 
 
-              <!-- User Name-->
+              <!-- Role Name-->
           <div class="form-group">
-            <label for="name">User Name</label>
-            <input type="text" class="form-control" id="name" name ="name" placeholder="user name">
+            <label for="title">Role Name</label>
+            <input type="text" class="form-control" id="title" name ="name" placeholder="Role Name">
           </div>
-          <!--/User Name-->
+          <!--/Role Name-->
 
-          <!-- Email-->
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" name ="email" placeholder="user email">
-          </div>
-          <!--/Email -->
 
-          <!-- Password-->
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name ="password" placeholder="user password">
-          </div>
-          <!--/Password -->
-
-          <!-- Confirm Password-->
-          <div class="form-group">
-            <label for="Cpassword">Confirm Password</label>
-            <input type="password" class="form-control" id="Cpassword" name ="Cpassword" placeholder="Confirm password">
-          </div>
-          <!--/Confirm Password -->
-
-          <!-- Assign Role-->
-          <div class="form-group">
-            <label for="role">Assign Role</label>
-            <select class="form-control" id="role" name ="role">
-              <option value="0">Editor</option>
-              <option value="1">Publisher</option>
-              <option value="2">Writer</option>
-            </select>
-          </div>
-          <!--/Assign Role -->
 
             </div>
             <!-- /.col -->
@@ -89,7 +59,7 @@
         <div class="col-lg-offset-3 col-lg-5 box-footer">
               <button type="submit" class="btn btn-primary">Submit</button>
 
-                  <a class="btn btn-warning" href="{{route('user.index')}}">Back </a>
+                  <a class="btn btn-warning" href="{{route('role.index')}}">Back </a>
             </div>
 
 
