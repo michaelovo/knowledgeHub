@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Model\admin\role;
+use App\Model\admin\Permission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class RoleController extends Controller
+class PermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-      $roles = role::all();
-
-      //  return view('layouts.admin.tag.show',compact('posts'));
-        return view('layouts.admin.role.show',compact('roles'));
-
+        //
     }
 
     /**
@@ -28,8 +24,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-      $roles=role::all();
-      return view('layouts.admin.role.create');
+        //
     }
 
     /**
@@ -40,17 +35,7 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-      //return $request->all();
-      $this->validate($request,[
-      'name'=>'required|max:20|unique:roles'
-      // 'unique:roles'...roles is the table name. It allows unique role name in the table
-
-    ]);
-
-      $roles = new role;
-      $roles->name = $request->name;
-      $roles->save();
-      return redirect(route('role.index'));
+        //
     }
 
     /**
@@ -72,8 +57,7 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-      $roles=role::where('id',$id)->first();
-        return view('layouts.admin.role.edit',compact('roles'));
+        //
     }
 
     /**
@@ -85,16 +69,7 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-      //return $request->all();
-      $this->validate($request,[
-      'name'=>'required|max:20'
-
-    ]);
-
-      $roles = role::find($id);
-      $roles->name = $request->name;
-      $roles->update();
-      return redirect(route('role.index'));
+        //
     }
 
     /**
@@ -105,8 +80,6 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-      role::where('id',$id)->delete();
-      return redirect()->back();
-
+        //
     }
 }
