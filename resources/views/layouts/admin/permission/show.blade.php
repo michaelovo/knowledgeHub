@@ -25,8 +25,8 @@
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Roles</h3>
-          <a class="col-lg-offset-5 btn btn-success" href="{{route('role.create')}}">Add New </a>
+          <h3 class="box-title">Permissions</h3>
+          <a class="col-lg-offset-5 btn btn-success" href="{{route('permission.create')}}">Add New </a>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                     title="Collapse">
@@ -40,7 +40,7 @@
             <div class="col-xs-12">
               <div class="box">
                   <div class="box-header">
-                    <h3 class="box-title">Data Table With Full Features</h3>
+                      @include('layouts.includes.err_msg')
                   </div>
                   <!-- /.box-header -->
                   <div class="box-body">
@@ -49,29 +49,29 @@
                       <thead>
                       <tr>
                         <th>Sn</th>
-                        <th>Role name</th>
+                        <th>Permission</th>
                         <th>Created</th>
                         <th>Actions</th>
                       </tr>
                       </thead>
-                      @foreach($roles as $role)
+                      @foreach($permission as $permission)
 
                       <tr>
                         <td>{{$loop->index + 1}}</td>
-                        <td>{{$role->name}}</td>
-                        <td>{{$role->created_at}}</td>
+                        <td>{{$permission->name}}</td>
+                        <td>{{$permission->created_at}}</td>
                         <td>
-                      <a href="{{route('role.edit',$role->id)}}" class="fa fa-edit text-blue"></a>
+                      <a href="{{route('permission.edit',$permission->id)}}" class="fa fa-edit text-blue"></a>
 
-                        <form id="delete-form-{{$role->id}}" method="post" action="{{route('role.destroy',$role->id)}}" style="display:none;">
+                        <form id="delete-form-{{$permission->id}}" method="post" action="{{route('permission.destroy',$permission->id)}}" style="display:none;">
                           {{csrf_field()}}
                           {{method_field('DELETE')}}
                         </form>
-                          <a href="{{route('role.destroy',$role->id)}}" class="fa fa-fw fa-trash text-red"
+                          <a href="{{route('tags.destroy',$permission->id)}}" class="fa fa-fw fa-trash text-red"
                             onclick="if(confirm('Are You Sure You Want To Delete this ?'))
                             {
                               event.preventDefault();
-                              document.getElementById('delete-form-{{$role->id}}').submit();
+                              document.getElementById('delete-form-{{$permission->id}}').submit();
                             }
                             else{
                               event.preventDefault();

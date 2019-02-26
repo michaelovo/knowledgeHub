@@ -54,6 +54,7 @@
 
            <li><a href="{{route('user.index')}}"><i class="fa fa-users text-orange"></i> Users</a></li>
             <li><a href="{{route('role.index')}}"><i class="fa fa-gear text-orange"></i> Roles</a></li>
+            <li><a href="{{route('permission.index')}}"><i class="fa fa-gear text-orange"></i> Permission</a></li>
 
          </ul>
        </li>
