@@ -75,7 +75,8 @@ class RoleController extends Controller
     public function edit($id)
     {
       $roles=role::where('id',$id)->first();
-        return view('layouts.admin.role.edit',compact('roles'));
+      $permissions = Permission::all();
+        return view('layouts.admin.role.edit',compact('roles','permissions'));
     }
 
     /**
@@ -87,7 +88,7 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-      //return $request->all();
+      return $request->all();
       $this->validate($request,[
       'name'=>'required|max:20'
 

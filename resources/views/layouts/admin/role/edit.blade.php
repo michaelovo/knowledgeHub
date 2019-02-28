@@ -42,7 +42,7 @@
 
         <div class="box-body">
           <div class="row">
-            <div class="col-lg-offset-3 col-md-4">
+            <div class="col-lg-offset-3 col-md-6">
 
 
               <!-- Role Name-->
@@ -51,6 +51,47 @@
             <input type="text" class="form-control" id="title" name ="name" placeholder="Role Name" value="{{$roles->name}}">
           </div>
           <!--/Role Name-->
+
+          <div class="row"><!-- Permissions row--->
+
+            <div class="col-lg-4"><!--Posts Permissions --->
+              <label for="permission_for">Posts Permission </label>
+                  @foreach($permissions as $permission)
+                      @if($permission->permission_for == 'post')
+                <div class="checkbox">
+                    <label><input type="checkbox" name="permission[]" value="{{$permission->id}}">
+                        {{$permission->name}}</label>
+                </div>
+                @endif
+                @endforeach
+            </div>  <!--/Posts Permissions --->
+
+
+            <div class="col-lg-4"><!--User Permission --->
+              <label for="permission_for">User Permissions </label>
+                  @foreach($permissions as $permission)
+                      @if($permission->permission_for == 'user')
+                <div class="checkbox">
+                    <label><input type="checkbox" name="permission[]" value="{{$permission->id}}">
+                        {{$permission->name}}</label>
+                </div>
+                @endif
+                @endforeach
+            </div>  <!--/User Permissions --->
+
+
+            <div class="col-lg-4"><!--other Permissions --->
+              <label for="permission_for">Other Permission </label>
+                  @foreach($permissions as $permission)
+                      @if($permission->permission_for == 'other')
+                <div class="checkbox">
+                    <label><input type="checkbox" name="permission[]" value="{{$permission->id}}">
+                        {{$permission->name}}</label>
+                </div>
+                @endif
+                @endforeach
+            </div>  <!--/other Permissions --->
+          </div><!-- / Permissions row--->
 
 
 
