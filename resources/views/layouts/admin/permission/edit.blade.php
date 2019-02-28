@@ -52,6 +52,17 @@
           </div>
           <!--/Role Name-->
 
+          <!-- permission_for-->
+      <div class="form-group">
+        <label for="permission_for">Permission for</label>
+        <select class="form-control" id="permission_for" name ="permission_for">
+            <option selected disabled>Select permission for</option>
+            <option value="user">User</option>
+            <option value="post">Post</option>
+            <option value="other">Other</option>
+        </select>
+      </div>
+      <!--/permission_for-->
 
 
             </div>

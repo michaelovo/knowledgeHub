@@ -28,7 +28,7 @@
       <!-- SELECT2 EXAMPLE -->
       <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Select2</h3>
+          <h3 class="box-title">Roles</h3>
         </div>
         <!-- /.box-header -->
 
@@ -40,8 +40,7 @@
 
         <div class="box-body">
           <div class="row">
-            <div class="col-lg-offset-3 col-md-4">
-
+            <div class="col-lg-offset-3 col-md-6">
 
               <!-- Role Name-->
           <div class="form-group">
@@ -50,11 +49,50 @@
           </div>
           <!--/Role Name-->
 
+          <div class="row"><!-- Permissions row--->
+
+            <div class="col-lg-4"><!--Posts Permissions --->
+              <label for="permission_for">Posts Permission </label>
+                  @foreach($permissions as $permission)
+                      @if($permission->permission_for == 'post')
+                <div class="checkbox">
+                    <label><input type="checkbox" value="{{$permission->id}}">
+                        {{$permission->name}}</label>
+                </div>
+                @endif
+                @endforeach
+            </div>  <!--/Posts Permissions --->
 
 
-            </div>
-            <!-- /.col -->
-                    </div>
+            <div class="col-lg-4"><!--User Permission --->
+              <label for="permission_for">User Permissions </label>
+                  @foreach($permissions as $permission)
+                      @if($permission->permission_for == 'user')
+                <div class="checkbox">
+                    <label><input type="checkbox" value="{{$permission->id}}">
+                        {{$permission->name}}</label>
+                </div>
+                @endif
+                @endforeach
+            </div>  <!--/User Permissions --->
+
+
+            <div class="col-lg-4"><!--other Permissions --->
+              <label for="permission_for">Other Permission </label>
+                  @foreach($permissions as $permission)
+                      @if($permission->permission_for == 'other')
+                <div class="checkbox">
+                    <label><input type="checkbox" value="{{$permission->id}}">
+                        {{$permission->name}}</label>
+                </div>
+                @endif
+                @endforeach
+            </div>  <!--/other Permissions --->
+          </div><!-- / Permissions row--->
+
+
+            </div>  <!-- /.col -->
+          </div>
 
         <div class="col-lg-offset-3 col-lg-5 box-footer">
               <button type="submit" class="btn btn-primary">Submit</button>

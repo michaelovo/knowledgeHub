@@ -39,13 +39,14 @@ class PermissionController extends Controller
     {
       //return $request->all();
       $this->validate($request,[
-      'name'=>'required|max:20|unique:permissions'
+      'name'=>'required|max:20|unique:permissions',
       // 'unique:roles'...roles is the table name. It allows unique role name in the table
-
+        'permission_for'=>'required'
     ]);
 
       $permissions = new permission;
       $permissions->name = $request->name;
+      $permissions->permission_for = $request->permission_for;
       $permissions->save();
       return redirect(route('permission.index'))->with('message','Permission Created successfuly');
     }
@@ -84,12 +85,14 @@ class PermissionController extends Controller
     {
       //return $request->all();
       $this->validate($request,[
-      'name'=>'required|max:20'
+      'name'=>'required|max:20',
+      'permission_for'=>'required'
 
     ]);
 
       $permission = permission::find($permission->id);
       $permission->name = $request->name;
+      $permission->permission_for = $request->permission_for;
       $permission->update();
       return redirect(route('permission.index'))->with('message','Permission updated successfuly');
     }

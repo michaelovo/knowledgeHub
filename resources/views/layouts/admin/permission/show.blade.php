@@ -49,7 +49,8 @@
                       <thead>
                       <tr>
                         <th>Sn</th>
-                        <th>Permission</th>
+                        <th>Permission Name</th>
+                        <th>Permission for</th>
                         <th>Created</th>
                         <th>Actions</th>
                       </tr>
@@ -59,7 +60,9 @@
                       <tr>
                         <td>{{$loop->index + 1}}</td>
                         <td>{{$permission->name}}</td>
+                        <td>{{$permission->permission_for}}</td>
                         <td>{{$permission->created_at}}</td>
+
                         <td>
                       <a href="{{route('permission.edit',$permission->id)}}" class="fa fa-edit text-blue"></a>
 
