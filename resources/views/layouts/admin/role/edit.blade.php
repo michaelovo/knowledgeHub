@@ -59,8 +59,17 @@
                   @foreach($permissions as $permission)
                       @if($permission->permission_for == 'post')
                 <div class="checkbox">
-                    <label><input type="checkbox" name="permission[]" value="{{$permission->id}}">
+                   <!--To auto-hilight selected options from db in frontend-->
+                    <label><input type="checkbox" name="permission[]" value="{{$permission->id}}"
+                      @foreach($roles->permissions as $role_permit)
+                        @if($role_permit->id == $permission->id)
+                          checked
+                        @endif
+                      @endforeach
+
+                      >
                         {{$permission->name}}</label>
+                   <!--/To auto-hilight selected options from db in frontend-->
                 </div>
                 @endif
                 @endforeach
@@ -72,8 +81,17 @@
                   @foreach($permissions as $permission)
                       @if($permission->permission_for == 'user')
                 <div class="checkbox">
-                    <label><input type="checkbox" name="permission[]" value="{{$permission->id}}">
-                        {{$permission->name}}</label>
+                  <!--To auto-hilight selected options from db in frontend-->
+                   <label><input type="checkbox" name="permission[]" value="{{$permission->id}}"
+                     @foreach($roles->permissions as $role_permit)
+                       @if($role_permit->id == $permission->id)
+                         checked
+                       @endif
+                     @endforeach
+
+                     >
+                       {{$permission->name}}</label>
+                  <!--/To auto-hilight selected options from db in frontend-->
                 </div>
                 @endif
                 @endforeach
@@ -85,8 +103,17 @@
                   @foreach($permissions as $permission)
                       @if($permission->permission_for == 'other')
                 <div class="checkbox">
-                    <label><input type="checkbox" name="permission[]" value="{{$permission->id}}">
-                        {{$permission->name}}</label>
+                  <!--To auto-hilight selected options from db in frontend-->
+                   <label><input type="checkbox" name="permission[]" value="{{$permission->id}}"
+                     @foreach($roles->permissions as $role_permit)
+                       @if($role_permit->id == $permission->id)
+                         checked
+                       @endif
+                     @endforeach
+
+                     >
+                       {{$permission->name}}</label>
+                  <!--/To auto-hilight selected options from db in frontend-->
                 </div>
                 @endif
                 @endforeach
