@@ -61,6 +61,7 @@ class UserController extends Controller
 
     $request['password']=bcrypt($request->password); // BYCRYPT password
     $users=admin::create($request->all());
+    $users->roles()->sync($request->role); //'roles' relationship name, 'role' model name
     return redirect(route('user.index'));
     }
 
@@ -107,7 +108,8 @@ class UserController extends Controller
       //  'body'=>'required'
     ]);
 
-        $users =admin::where('id',$id)->update($request->except('_token','_method'));
+        $users =admin::where('id',$id)->update($request->except('_token','_method','role'));
+        admin::find($id)->roles()->sync($request->role); //'roles' relationship name, 'role' model name
           return redirect(route('user.index'))->with('message','User Updated succesfully');
 
     }

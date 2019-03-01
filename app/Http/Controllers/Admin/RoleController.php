@@ -52,7 +52,7 @@ class RoleController extends Controller
       $roles = new role;
       $roles->name = $request->name;
       $roles->save();
-      //$roles->permissions()->sync($request->tags);
+      $roles->permissions()->sync($request->permission);
       return redirect(route('role.index'));
     }
 

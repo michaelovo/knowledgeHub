@@ -12,6 +12,12 @@ class admin extends Authenticatable
       use Notifiable;
     //  use Notifiable;
 
+    public function roles()
+  {
+    //Relationship between permission and role
+    return $this->belongsToMany('App\Model\admin\role');
+  }
+
       /**
        * The attributes that are mass assignable.
        *

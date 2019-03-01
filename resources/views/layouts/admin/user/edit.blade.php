@@ -67,7 +67,7 @@
           </div>
           <!--/phone -->
 
-        
+
 
           <!--status -->
           <div class="checkbox">
@@ -83,7 +83,12 @@
              @foreach($roles as $role)
                 <div class="col-lg-3">
                   <div class="checkbox"><!--'role[]'allows users to be assign more than one role as selected --->
-                    <label><input type="checkbox" name ="role[]" value="{{$role->id}}">
+                    <label><input type="checkbox" name ="role[]" value="{{$role->id}}"
+                      @foreach($users->roles as $user_role)
+                        @if($user_role->id == $role->id)
+                          checked
+                        @endif
+                      @endforeach>
                       {{$role->name}}
                     </label>
                 </div>
