@@ -52,6 +52,7 @@ class RoleController extends Controller
       $roles = new role;
       $roles->name = $request->name;
       $roles->save();
+      //$roles->permissions()->sync($request->tags);
       return redirect(route('role.index'));
     }
 
@@ -88,7 +89,7 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-      return $request->all();
+      //return $request->all();
       $this->validate($request,[
       'name'=>'required|max:20'
 
@@ -97,6 +98,11 @@ class RoleController extends Controller
       $roles = role::find($id);
       $roles->name = $request->name;
       $roles->update();
+      $roles->permissions()->sync($request->permission);// role and permission relationship sync
+      /*  $roles->permissions()->sync($request->permission);// 'permissions' is the relationship name
+      defined in the 'role' model while 'permissions' is the model name
+      */
+
       return redirect(route('role.index'));
     }
 
