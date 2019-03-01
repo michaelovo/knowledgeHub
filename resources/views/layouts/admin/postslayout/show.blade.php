@@ -52,7 +52,7 @@
                         <th>Title</th>
                         <th>Subtitle</th>
                         <th>Slug</th>
-                        <th>Contents</th>
+                        <!--th>Contents</th-->
                           <th>Created at</th>
                         <th>Actions</th>
                       </tr>
@@ -65,7 +65,7 @@
                         <td>{{$post->title}}</td>
                         <td>{{$post->subtitle}}</td>
                         <td>{{$post->slug}}</td>
-                        <td>{{$post->body}}</td>
+                        <!--td>{{$post->body}}</td>
                         <td>{{$post->created_at}}</td>
                         <td>
                       <a href="{{route('post.edit',$post->id)}}" class="fa fa-edit text-blue"></a>

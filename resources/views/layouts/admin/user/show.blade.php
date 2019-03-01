@@ -26,7 +26,9 @@
       <div class="box">
         <div class="box-header with-border">
           <h3 class="box-title">Users</h3>
+
           <a class="col-lg-offset-5 btn btn-success" href="{{route('user.create')}}">Add New </a>
+          @include('layouts.includes.err_msg')
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                     title="Collapse">

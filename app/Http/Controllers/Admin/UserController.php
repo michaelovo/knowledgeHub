@@ -49,7 +49,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-      return $request->all();
+      //return $request->all();
+      $this->validate($request,[
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:admins'],
+        'password' => ['required', 'string', 'min:6', 'confirmed'],
+        'phone' => ['required', 'string', 'max:15'],
+      //  'cpassword'=>'required',
+      //  'body'=>'required'
+    ]);
+
+    $request['password']=bcrypt($request->password); // BYCRYPT password
+    $users=admin::create($request->all());
+    return redirect(route('user.index'));
     }
 
     /**
@@ -71,7 +83,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+      $users=admin::where('id',$id)->first();
+      $roles=role::all();
+
+      return view('layouts.admin.user.edit',compact('users','roles'));
     }
 
     /**
@@ -83,7 +98,18 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $this->validate($request,[
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255'],
+      //  'password' => ['required', 'string', 'min:6', 'confirmed'],
+        'phone' => ['required', 'string', 'max:15'],
+      //  'cpassword'=>'required',
+      //  'body'=>'required'
+    ]);
+
+        $users =admin::where('id',$id)->update($request->except('_token','_method'));
+          return redirect(route('user.index'))->with('message','User Updated succesfully');
+
     }
 
     /**
@@ -94,6 +120,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+      admin::where('id',$id)->delete();
+      return redirect()->back()->with('message','User deleted succesfully');
     }
 }

@@ -28,16 +28,16 @@
       <!-- SELECT2 EXAMPLE -->
       <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Select2</h3>
+          <h3 class="box-title">Update Admin</h3>
         </div>
         <!-- /.box-header -->
 
         @include('layouts.includes.err_msg')
 
           <!-- form-->
-        <form role="form" action="{{route('user.store')}}" method="post">
+        <form role="form" action="{{route('user.update',$users->id)}}" method="post">
           {{csrf_field()}}
-
+            {{method_field('PATCH')}}
         <div class="box-body">
           <div class="row">
             <div class="col-lg-offset-3 col-md-4">
@@ -47,7 +47,7 @@
           <div class="form-group">
             <label for="name">User Name</label>
             <input type="text" class="form-control" id="name" name ="name" placeholder="user name"
-            value="{{old('name')}}">
+            value="@if(old('name')){{old('name')}}@else{{$users->name}}@endif">
           </div>
           <!--/User Name-->
 
@@ -55,7 +55,7 @@
           <div class="form-group">
             <label for="email">Email</label>
             <input type="email" class="form-control" id="email" name ="email" placeholder="user email"
-              value="{{old('email')}}">
+            value="@if(old('email')){{old('email')}}@else{{$users->email}}@endif">
           </div>
           <!--/Email -->
 
@@ -63,28 +63,16 @@
           <div class="form-group">
             <label for="phone">Phone</label>
             <input type="phone" class="form-control" id="phone" name ="phone" placeholder="user phone"
-              value="{{old('email')}}">
+              value="@if(old('phone')){{old('phone')}}@else{{$users->phone}}@endif">
           </div>
           <!--/phone -->
 
-          <!-- Password-->
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name ="password" placeholder="user password">
-          </div>
-          <!--/Password -->
-
-          <!-- Confirm Password-->
-          <div class="form-group">
-            <label for="password_confirmation">Confirm Password</label>
-            <input type="password" class="form-control" id="password_confirmation" name ="password_confirmation" placeholder="Confirm password">
-          </div>
-          <!--/Confirm Password -->
+        
 
           <!--status -->
           <div class="checkbox">
             <label><input type="checkbox" name ="status" value="1"
-              @if (old('status')==1) checked @endif> status </label>
+              @if (old('status')==1 || $users->status ==1) checked @endif> status </label>
         </div>
         <!--status -->
 
