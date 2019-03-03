@@ -52,7 +52,9 @@
                       <tr>
                         <th>Sn</th>
                         <th>name</th>
-                        <th>Slug</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Assigned Roles</th>
                         <th>Created</th>
                         <th>Actions</th>
                       </tr>
@@ -62,7 +64,16 @@
                       <tr>
                         <td>{{$loop->index + 1}}</td>
                         <td>{{$user->name}}</td>
-                        <td>{{$user->slug}}</td>
+                        <td>{{$user->email}}</td>
+                        <td>{{$user->phone}}</td>
+                        <td>
+                          <!-- To display all users roles to 'use/show.blade'
+                            '$user' frm the outer loop, 'roles'
+                          -->
+                          @foreach($user->roles as $role)
+                          {{$role->name}}
+                          @endforeach
+                        </td>
                         <td>{{$user->created_at}}</td>
                         <td>
                       <a href="{{route('user.edit',$user->id)}}" class="fa fa-edit text-blue"></a>

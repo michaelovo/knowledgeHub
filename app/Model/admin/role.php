@@ -11,4 +11,9 @@ class role extends Model
     //Relationship between role and permission
     return $this->belongsToMany('App\Model\admin\Permission');
   }
+    public function admins()
+    {
+      //Relationship between permission and role
+      return $this->belongsToMany('App\Model\admin\admin');
+    }
 }
