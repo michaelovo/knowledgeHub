@@ -25,7 +25,7 @@
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Title</h3>
+          <h3 class="box-title">Tags</h3>
           <a class="col-lg-offset-5 btn btn-success" href="{{route('tags.create')}}">Add New </a>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
@@ -40,7 +40,7 @@
             <div class="col-xs-12">
               <div class="box">
                   <div class="box-header">
-                    <h3 class="box-title">Data Table With Full Features</h3>
+                    <!--h3 class="box-title">Data Table With Full Features</h3-->
                   </div>
                   <!-- /.box-header -->
                   <div class="box-body">
@@ -105,11 +105,7 @@
               </div>
 
         </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          Footer
-        </div>
-        <!-- /.box-footer-->
+
       </div>
       <!-- /.box -->
 

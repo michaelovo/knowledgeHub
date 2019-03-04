@@ -40,7 +40,7 @@
             <div class="col-xs-12">
               <div class="box">
                   <div class="box-header">
-                    <h3 class="box-title">Data Table With Full Features</h3>
+                    <!--h3 class="box-title">Data Table With Full Features</h3-->
                   </div>
                   <!-- /.box-header -->
                   <div class="box-body">
@@ -65,7 +65,7 @@
                         <td>{{$post->title}}</td>
                         <td>{{$post->subtitle}}</td>
                         <td>{{$post->slug}}</td>
-                        <!--td>{{$post->body}}</td>
+                        <!--td>{{$post->body}}</td-->
                         <td>{{$post->created_at}}</td>
                         <td>
                       <a href="{{route('post.edit',$post->id)}}" class="fa fa-edit text-blue"></a>
@@ -110,11 +110,7 @@
               </div>
 
         </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          Footer
-        </div>
-        <!-- /.box-footer-->
+
       </div>
       <!-- /.box -->
 

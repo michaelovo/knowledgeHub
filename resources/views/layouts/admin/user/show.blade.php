@@ -42,7 +42,7 @@
             <div class="col-xs-12">
               <div class="box">
                   <div class="box-header">
-                    <h3 class="box-title">Data Table With Full Features</h3>
+                    <!--h3 class="box-title">Data Table With Full Features</h3-->
                   </div>
                   <!-- /.box-header -->
                   <div class="box-body">
@@ -71,7 +71,7 @@
                             '$user' frm the outer loop, 'roles'
                           -->
                           @foreach($user->roles as $role)
-                          {{$role->name}}
+                          {{$role->name}}<p></p>
                           @endforeach
                         </td>
                         <td>{{$user->created_at}}</td>
@@ -118,11 +118,7 @@
               </div>
 
         </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          Footer
-        </div>
-        <!-- /.box-footer-->
+
       </div>
       <!-- /.box -->
 
