@@ -99,15 +99,14 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+    //return $request->all();
       $this->validate($request,[
         'name' => ['required', 'string', 'max:255'],
         'email' => ['required', 'string', 'email', 'max:255'],
-      //  'password' => ['required', 'string', 'min:6', 'confirmed'],
         'phone' => ['required', 'string', 'max:15'],
-      //  'cpassword'=>'required',
-      //  'body'=>'required'
-    ]);
 
+    ]);
+        $request->status? : $request['status']=0; // if status is checked do nothing else set value to ='0'
         $users =admin::where('id',$id)->update($request->except('_token','_method','role'));
         admin::find($id)->roles()->sync($request->role); //'roles' relationship name, 'role' model name
           return redirect(route('user.index'))->with('message','User Updated succesfully');

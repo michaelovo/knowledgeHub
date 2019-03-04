@@ -55,6 +55,7 @@
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Assigned Roles</th>
+                        <th>Status</th>
                         <th>Created</th>
                         <th>Actions</th>
                       </tr>
@@ -74,6 +75,8 @@
                           {{$role->name}}<p></p>
                           @endforeach
                         </td>
+                        <td>{{$user->status? 'Active' :'Inactive'}}</td>
+                        <!--If status value ='1' then active, else 'inactive'-->
                         <td>{{$user->created_at}}</td>
                         <td>
                       <a href="{{route('user.edit',$user->id)}}" class="fa fa-edit text-blue"></a>

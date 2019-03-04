@@ -28,15 +28,21 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
-<body class="hold-transition login-page">
+<body class="hold-transition login-page"
+style="background: url({{asset('admin/dist/img/hero.jpg')}}); background-size:cover; background-position: center center">
 
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Admin</b>Login</a>
+    <a href="{{route('admin.login')}}" style="color:white"><b>Admin </b> Login</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+
+
+    <div>
+      <p class="login-box-msg">Sign in to start your session</p>
+    </div>
+
 
       @include('layouts.includes.err_msg')
       <!--'admin.login' the 'admin' here is the GUARD name defined for the admin in
