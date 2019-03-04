@@ -18,6 +18,12 @@ class admin extends Authenticatable
     return $this->belongsToMany('App\Model\admin\role');
   }
 
+  // accessor to change first character value of 'name' field to uppercase
+  public function getNameAttribute($value)
+  {
+      return ucfirst($value);
+  }
+
       /**
        * The attributes that are mass assignable.
        *
