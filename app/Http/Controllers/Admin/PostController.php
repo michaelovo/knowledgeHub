@@ -5,6 +5,7 @@ use App\Model\user\post;
 use App\Model\user\tag;
 use App\Model\user\category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
 class PostController extends Controller
@@ -19,6 +20,7 @@ class PostController extends Controller
    */
   public function __construct()
   {
+
       $this->middleware('auth:admin');
   }
 
@@ -44,9 +46,16 @@ class PostController extends Controller
      */
     public function create()
     {
+      if (Auth::user()->can('posts.create'))
+      {
+
+
         $tag = tag::all();
         $category = category::all();
         return view('layouts.admin.postslayout.post',compact('tag','category'));
+      }
+      
+        return redirect(route('admin.home'));
     }
 
     /**
@@ -108,11 +117,15 @@ class PostController extends Controller
      */
     public function edit($id)
     {
+      if (Auth::user()->can('posts.update'))
+      {
         $posts=post::with('tags','category')->where('id',$id)->first(); //'tags n category' model relationship name defined
         $tag = tag::all();//allows editing of tags on post 'edit' file
         $category = category::all();//allows editing of category on post 'edit' file
         return view('layouts.admin.postslayout.edit',compact('tag','category','posts'));
           //return view('layouts.admin.postslayout.edit',compact('posts'));
+        }
+          return redirect(route('admin.home'));
     }
 
     /**
@@ -124,6 +137,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         //return $request->all();
         //To validate before updating
         $this->validate($request,[
@@ -152,6 +166,7 @@ class PostController extends Controller
         $post->category()->sync($request->category);// 'category' is the relationship name defined in the 'user' model
 
         return redirect(route('post.index'));
+
 
     }
 

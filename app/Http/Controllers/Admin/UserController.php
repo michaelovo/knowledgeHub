@@ -16,6 +16,7 @@ class UserController extends Controller
   public function __construct()
   {
       $this->middleware('auth:admin');
+    //  $this->middleware('can:posts.user_create');
   }
 
     /**
@@ -36,6 +37,7 @@ class UserController extends Controller
      */
     public function create()
     {
+
         $roles=role::all();
         //return $roles;
         return view('layouts.admin.user.create',compact('roles'));

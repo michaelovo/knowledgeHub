@@ -37,8 +37,13 @@
          </a>
          <ul class="treeview-menu">
            <li><a href="{{route('post.index')}}"><i class="fa fa-eye"></i> Posts</a></li>
+           @can('posts.category', Auth::user())
            <li><a href="{{route('category.index')}}"><i class="fa fa-eye"></i> Category</a></li>
+           @endcan
+           
+           @can('posts.tag', Auth::user())
            <li><a href="{{route('tags.index')}}"><i class="fa fa-eye"></i> Tags</a></li>
+           @endcan
          </ul>
        </li>
 

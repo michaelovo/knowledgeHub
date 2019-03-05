@@ -26,7 +26,9 @@
       <div class="box">
         <div class="box-header with-border">
           <h3 class="box-title">Posts</h3>
+          @can('posts.create', Auth::user())
           <a class="col-lg-offset-5 btn btn-success" href="{{route('post.create')}}">Add New </a>
+          @endcan
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                     title="Collapse">
@@ -54,7 +56,15 @@
                         <th>Slug</th>
                         <!--th>Contents</th-->
                           <th>Created at</th>
-                        <th>Actions</th>
+
+                        @can('posts.update', Auth::user())
+                          <th>Edit</th>
+                        @endcan
+
+                        @can('posts.delete', Auth::user())
+                          <th>Delete</th>
+                        @endcan
+
                       </tr>
                       </thead>
 
@@ -67,13 +77,18 @@
                         <td>{{$post->slug}}</td>
                         <!--td>{{$post->body}}</td-->
                         <td>{{$post->created_at}}</td>
+                        @can('posts.update', Auth::user())
                         <td>
-                      <a href="{{route('post.edit',$post->id)}}" class="fa fa-edit text-blue"></a>
+                            <a href="{{route('post.edit',$post->id)}}" class="fa fa-edit text-blue"></a>
+                        </td>
+                        @endcan
 
-                        <form id="delete-form-{{$post->id}}" method="post" action="{{route('post.destroy',$post->id)}}" style="display:none;">
-                          {{csrf_field()}}
-                          {{method_field('DELETE')}}
-                        </form>
+                        @can('posts.delete', Auth::user())
+                        <td>
+                          <form id="delete-form-{{$post->id}}" method="post" action="{{route('post.destroy',$post->id)}}" style="display:none;">
+                            {{csrf_field()}}
+                            {{method_field('DELETE')}}
+                          </form>
                           <a href="{{route('post.destroy',$post->id)}}" class="fa fa-fw fa-trash text-red"
                             onclick="if(confirm('Are You Sure You Want To Delete this ?'))
                             {
@@ -85,6 +100,7 @@
                             }">
                           </a>
                           </td>
+                          @endcan
                       </tr>
                       @endforeach
 
