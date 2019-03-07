@@ -15,4 +15,10 @@ class PostController extends Controller
     //  return $slug;
       return view('layouts/user/posts',compact('post'));
     }
+
+      // to retrive data for vue. NB: its dsame as in the index of the user HomeController
+    public function getAllpost(){
+      return $slug=post::where('status',1)->orderBy('created_at','DESC')->paginate(4);
+        //return view('layouts/user/blogs',compact('slug'));
+    }
 }

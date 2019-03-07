@@ -3,7 +3,7 @@
 namespace App\Model\user;
 
 use Illuminate\Database\Eloquent\Model;
-
+use\Carbon\Carbon;
 class post extends Model
 {
     // Relationship btw post and tag .
@@ -19,5 +19,9 @@ class post extends Model
     // To display post content body to user frontend via slug. 'slug' must be dsame as in db
     public function getRouteKeyName(){
       return 'slug';
+    }
+      // to get 'created_at' date in human form. take note of the Carbon header
+    public function getCreatedAtAttribute($value){
+      return Carbon::parse($value)->diffForHumans();
     }
 }

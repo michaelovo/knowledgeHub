@@ -18,6 +18,7 @@ class HomeController extends Controller
      */
       $slug=post::where('status',1)->orderBy('created_at','DESC')->paginate(4);
         return view('layouts/user/blogs',compact('slug'));
+      //  return view('layouts/user/blogs');
     }
 
       /* (category $category)'category' is the model name. '$category' can be any name bt must be dsame as in compact method below,*/
@@ -31,4 +32,5 @@ class HomeController extends Controller
         $slug = $tags->posts();
         return view('layouts/user/blogs',compact('slug'));
     }
+
 }
