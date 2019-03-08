@@ -24,10 +24,21 @@ class PostController extends Controller
 
     }
     // the Like system saveLike
-    public function saveLike(request $request){
+    public function saveLike(request $request)
+    {
+        // checks if a user has any 'like' on a post then value =1
+      $likecheck = like::where(['user_id'=>Auth::id(),'post_id'=>$request->id])->first();
+
+      if($likecheck){
+          // this delete if the like value is true
+          like::where(['user_id'=>Auth::id(),'post_id'=>$request->id])->delete();
+          return 'deleted';
+      }
+      else{
       $like = new like;
       $like->user_id = Auth::id();
       $like->post_id = $request->id;
       $like->save();
+      }
     }
 }

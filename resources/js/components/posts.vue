@@ -17,7 +17,10 @@
     {{created_at}}
     <a href=""@click.prevent="Likeit">
       <small>{{likeCount}}</small>
-      <i class="fa fa-thumbs-up" aria-hidden="true" ></i>
+
+      <i class="fa fa-thumbs-up" v-if="likeCount == 0" aria-hidden="true" ></i>
+      <i class="fa fa-thumbs-up" style="color:blue" v-else="likeCount > 0" aria-hidden="true" ></i>
+
     </a>
   </p>
 
@@ -44,9 +47,12 @@
                       id : this.postId
                     })
                     .then(response => {
+                        if(response.data == 'deleted'){
+                            this.likeCount -= 1; //to decrease the number of likes
+                        }
+                        else {
                         this.likeCount += 1; //to increase the number of likes
-                        //this.blog = response.data.data;
-                        console.log(response);
+                        }
                       })
                       .catch(function (error) {
                         console.log(error);

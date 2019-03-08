@@ -1822,6 +1822,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1842,10 +1845,11 @@ __webpack_require__.r(__webpack_exports__);
         axios.post('/saveLike', {
           id: this.postId
         }).then(function (response) {
-          _this.likeCount += 1; //to increase the number of likes
-          //this.blog = response.data.data;
-
-          console.log(response);
+          if (response.data == 'deleted') {
+            _this.likeCount -= 1; //to decrease the number of likes
+          } else {
+            _this.likeCount += 1; //to increase the number of likes
+          }
         }).catch(function (error) {
           console.log(error);
         });
@@ -36976,10 +36980,16 @@ var render = function() {
         [
           _c("small", [_vm._v(_vm._s(_vm.likeCount))]),
           _vm._v(" "),
-          _c("i", {
-            staticClass: "fa fa-thumbs-up",
-            attrs: { "aria-hidden": "true" }
-          })
+          _vm.likeCount == 0
+            ? _c("i", {
+                staticClass: "fa fa-thumbs-up",
+                attrs: { "aria-hidden": "true" }
+              })
+            : _c("i", {
+                staticClass: "fa fa-thumbs-up",
+                staticStyle: { color: "blue" },
+                attrs: { "aria-hidden": "true" }
+              })
         ]
       )
     ])
