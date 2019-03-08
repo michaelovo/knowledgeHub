@@ -6,7 +6,7 @@
 @endsection
 
 <!---To display uploaded image from the posts db table-. Then after go to cmd
-  and type 'php artisan storage:link' To link the [public] directory and 
+  and type 'php artisan storage:link' To link the [public] directory and
   the [storage/app/public] subdirectory, else image won't be visible.
 --->
 @section('bg-image',Storage::disk('local')->url($post->image))
@@ -26,7 +26,8 @@
      <div class="row">
 
        <div class="col-lg-8 col-md-10 mx-auto">
-         <small>Created {{$post->created_at->diffforhumans()}}</small>
+         <small>Created {{$post->created_at}}</small>
+          <!--small>Created $post->created_at->diffforhumans()</small-->
          <!--'diffforhumans' allows displays in human readable form -->
 
           <!--To display Tag category 'category' is the Relationship name in post model-->

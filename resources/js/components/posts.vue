@@ -2,7 +2,7 @@
 
 <div class="post-preview">
 
-  <a href="slug">
+  <a :href="slug">
     <h2 class="post-title">
     {{title}}
     </h2>
@@ -33,7 +33,7 @@
         return {likeCount:0}
       },
       props:[
-        'title','subtitle','created_at','postId','login','likes'
+        'title','subtitle','created_at','postId','login','likes','slug'
       ],
       created(){
           // this passed the total likes to be displayed

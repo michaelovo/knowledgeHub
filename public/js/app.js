@@ -1831,7 +1831,7 @@ __webpack_require__.r(__webpack_exports__);
       likeCount: 0
     };
   },
-  props: ['title', 'subtitle', 'created_at', 'postId', 'login', 'likes'],
+  props: ['title', 'subtitle', 'created_at', 'postId', 'login', 'likes', 'slug'],
   created: function created() {
     // this passed the total likes to be displayed
     this.likeCount = this.likes;
@@ -36952,7 +36952,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "post-preview" }, [
-    _c("a", { attrs: { href: "slug" } }, [
+    _c("a", { attrs: { href: _vm.slug } }, [
       _c("h2", { staticClass: "post-title" }, [
         _vm._v("\n    " + _vm._s(_vm.title) + "\n    ")
       ]),

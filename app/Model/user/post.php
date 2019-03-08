@@ -29,4 +29,9 @@ class post extends Model
       //one post can have many likes
       return $this->hasMany('App\Model\user\like');
     }
+
+    // to get 'slug' links for posts as display in the blogs pages
+  public function getSlugAttribute($value){
+    return route('posts',$value);
+  }
 }
