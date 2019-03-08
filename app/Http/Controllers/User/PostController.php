@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\User;
 use App\Model\user\post;
+use App\Model\user\like;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,9 +18,16 @@ class PostController extends Controller
       return view('layouts/user/posts',compact('post'));
     }
 
-      // to retrive data for vue. NB: its dsame as in the index of the user HomeController
+      // to retrive data for vue. Note: its dsame as in the index of the user HomeController
     public function getAllpost(){
-      return $slug=post::where('status',1)->orderBy('created_at','DESC')->paginate(4);
-        //return view('layouts/user/blogs',compact('slug'));
+      return $slug=post::with('likes')->where('status',1)->orderBy('created_at','DESC')->paginate(4);
+
+    }
+    // the Like system saveLike
+    public function saveLike(request $request){
+      $like = new like;
+      $like->user_id = Auth::id();
+      $like->post_id = $request->id;
+      $like->save();
     }
 }

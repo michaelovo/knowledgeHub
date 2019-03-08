@@ -24,8 +24,12 @@
         :title=value.title
         :subtitle=value.subtitle
         :created_at=value.created_at
+        :post-id=value.id
+        login="{{Auth::check()}}"
+        :likes=value.likes.length
         :key=value.index>
       </posts>
+      <!--camel case notation as define in post.vue has to be rename as "post-id" here to avoid error-->
 
       <!-- Laravel Pagination -->
       <div class="clearfix">

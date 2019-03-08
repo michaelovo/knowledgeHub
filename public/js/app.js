@@ -1823,7 +1823,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['title', 'subtitle', 'created_at']
+  data: function data() {
+    return {
+      likeCount: 0
+    };
+  },
+  props: ['title', 'subtitle', 'created_at', 'postId', 'login', 'likes'],
+  created: function created() {
+    // this passed the total likes to be displayed
+    this.likeCount = this.likes;
+  },
+  methods: {
+    // for the like system
+    Likeit: function Likeit() {
+      var _this = this;
+
+      if (this.login) {
+        axios.post('/saveLike', {
+          id: this.postId
+        }).then(function (response) {
+          _this.likeCount += 1; //to increase the number of likes
+          //this.blog = response.data.data;
+
+          console.log(response);
+        }).catch(function (error) {
+          console.log(error);
+        });
+      } else {
+        window.location = 'login';
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -36932,25 +36962,30 @@ var render = function() {
       _vm._v("Posted by\n    "),
       _c("a", { attrs: { href: "#" } }, [_vm._v("#")]),
       _vm._v("\n    " + _vm._s(_vm.created_at) + "\n    "),
-      _vm._m(0)
+      _c(
+        "a",
+        {
+          attrs: { href: "" },
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.Likeit($event)
+            }
+          }
+        },
+        [
+          _c("small", [_vm._v(_vm._s(_vm.likeCount))]),
+          _vm._v(" "),
+          _c("i", {
+            staticClass: "fa fa-thumbs-up",
+            attrs: { "aria-hidden": "true" }
+          })
+        ]
+      )
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "" } }, [
-      _c("small", [_vm._v("0")]),
-      _vm._v(" "),
-      _c("i", {
-        staticClass: "fa fa-thumbs-up",
-        attrs: { "aria-hidden": "true" }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

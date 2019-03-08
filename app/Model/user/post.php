@@ -24,4 +24,9 @@ class post extends Model
     public function getCreatedAtAttribute($value){
       return Carbon::parse($value)->diffForHumans();
     }
+    // post/like Relationship
+    public function likes(){
+      //one post can have many likes
+      return $this->hasMany('App\Model\user\like');
+    }
 }

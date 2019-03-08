@@ -22,6 +22,8 @@ Route::group(['namespace' => 'User'],function(){
 
 // vue Routes
   Route::post('getpost','PostController@getAllpost');
+  // Like system saveLike
+  Route::post('saveLike','PostController@saveLike');
 });
 
 
