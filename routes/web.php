@@ -1,18 +1,12 @@
 <?php
 
-/*
-Route::get('/', function () {
-    return view('layouts/user/blogs');
-})->name('blogs');
 
-Route::get('/posts', function () {
-    return view('layouts/user/posts');
-})->name('posts');
-*/
 
 // USER ENDS
 Route::group(['namespace' => 'User'],function(){
   Route::get('/','HomeController@index')->name('blogs');
+  Route::get('/about','HomeController@about')->name('about');
+  Route::get('/contact','HomeController@contact')->name('contact');
   //Post Routes
   Route::get('posts/{post}','PostController@posts')->name('posts');
   //Tag Routes
@@ -50,27 +44,7 @@ Route::group(['namespace' => 'Admin'],function(){
 });
 
 
-//  admin routes
-/*
-Route::get('/admin/home', function () {
-    return view('layouts.admin.home');
-})->name('home');
-Route::get('/admin/post', function () {
-    return view('layouts.admin.postslayout.post');
-})->name('post');
 
-Route::get('/admin/table', function () {
-    return view('layouts.admin.table');
-})->name('table');
-
-Route::get('/admin/tags', function () {
-    return view('layouts.admin.tag.tags');
-})->name('tags');
-
-Route::get('/admin/category', function () {
-    return view('layouts.admin.category.category');
-})->name('category');
-*/
 Route::get('/admin/login', function () {
     return view('layouts.admin.login');
 })->name('table');

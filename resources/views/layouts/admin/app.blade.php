@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>
+    Admin Knowledge Hub
+  </title>
   @include('layouts.admin.head')
 </head>
 
 
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-  
+
   @include('layouts.admin.nav')
     @include('layouts.admin.sidebar')
 

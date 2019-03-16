@@ -1,7 +1,8 @@
 @extends('layouts/user/app')
 
-@section('bg-image',('user/img/home-bg.jpg'))
-
+@section('bg-image',('user/img/blogBg.jpg'))
+@section('heading','Welcome')
+@section('sub-heading',"...Never stop learning")
 @section('head')
 <meta name="csrf-token" content="{{ csrf_token() }}">
   <style>
@@ -13,9 +14,12 @@
 @endsection
 <!-- Main Content -->
 @section('main-content')
-<div class="container">
+
+<div class="container" style="background-color:#fff;">
   <div class="row" id="app">
-    <div class="col-lg-6 col-md-12 mx-auto">
+    <div class="col-lg-9 col-md-10 mx-auto">
+
+
       <!--'$slug' as defined in HomeController@index-->
 
 
@@ -38,6 +42,8 @@
         <!-- "slug" as defined in the index function of the HomeController -->
       </div>
       <!--/ Laravel Pagination -->
+        </br>
+        
     </div>
   </div>
 </div>

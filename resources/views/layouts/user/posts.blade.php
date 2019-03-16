@@ -22,10 +22,11 @@
 </script>
 <!-- /facebook comments system header-->
  <article>
-   <div class="container">
+   <div class="container" style="background-color:#fff;">
      <div class="row">
 
        <div class="col-lg-8 col-md-10 mx-auto">
+           </br>
          <small>Created {{$post->created_at}}</small>
           <!--small>Created $post->created_at->diffforhumans()</small-->
          <!--'diffforhumans' allows displays in human readable form -->
@@ -46,9 +47,12 @@
          <h5>Tags</h5>
          <!--To display Tag 'tags' is the Relationship name in post model  -->
          @foreach($post->tags as $tag)
-        <a href="{{ route('tags', $tag->slug) }}"><small class="float-left" style="margin-right:20px; border-radius:5px; border:1px solid gray;padding:5px;">
+        <a href="{{ route('tags', $tag->slug) }}">
+          <small class="float-left" style="margin-right:20px; border-radius:5px; border:1px solid gray;padding:5px;">
             #{{$tag->name}}
-          </small> </a>
+          </small>
+        </a>
+        </br></br>
          @endforeach
           <!--/To display Tag name-->
      </div>

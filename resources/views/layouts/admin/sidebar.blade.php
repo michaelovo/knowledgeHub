@@ -5,7 +5,7 @@
      <!-- Sidebar user panel -->
      <div class="user-panel">
        <div class="pull-left image">
-         <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+         <img src="{{asset('admin/dist/img/ovo.jpeg')}}" class="img-circle" alt="User Image">
        </div>
        <div class="pull-left info">
          <p>{{Auth::user()->name}}</p>
@@ -40,7 +40,7 @@
            @can('posts.category', Auth::user())
            <li><a href="{{route('category.index')}}"><i class="fa fa-eye"></i> Category</a></li>
            @endcan
-           
+
            @can('posts.tag', Auth::user())
            <li><a href="{{route('tags.index')}}"><i class="fa fa-eye"></i> Tags</a></li>
            @endcan

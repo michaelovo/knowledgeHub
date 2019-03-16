@@ -17,9 +17,10 @@
 
 
  <article>
-   <div class="container">
+   <div class="container" style="background-color:#fff;">
      <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
+            </br>
           <form method="POST" action="{{ route('register') }}">
               @csrf
 
@@ -81,7 +82,8 @@
                   </div>
               </div>
           </form>
-
+  </br>
+    </br>
         </div>
      </div>
    </div>

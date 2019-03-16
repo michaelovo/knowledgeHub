@@ -1,6 +1,6 @@
 <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-{{carbon\carbon::now()->year}} Michael's Blog</strong>
+  <footer class="main-footer float-right">
+    <strong>Copyright &copy; 2014-{{carbon\carbon::now()->year}} Knowledge Hub</strong>
     All rights reserved.
 
   </footer>

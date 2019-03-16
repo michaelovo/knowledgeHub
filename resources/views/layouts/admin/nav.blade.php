@@ -4,7 +4,7 @@
      <!-- mini logo for sidebar mini 50x50 pixels -->
      <span class="logo-mini"><b>A</b>LT</span>
      <!-- logo for regular state and mobile devices -->
-     <span class="logo-lg"><b>The Michaels</b> Blog</span>
+     <span class="logo-lg"><b>Knowledge</b> Hub</span>
    </a>
    <!-- Header Navbar: style can be found in header.less -->
    <nav class="navbar navbar-static-top">
@@ -18,13 +18,13 @@
 
          <li class="dropdown user user-menu">
            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-             <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
+             <img src="{{asset('admin/dist/img/ovo.jpeg')}}" class="user-image" alt="User Image">
              <span class="hidden-xs">{{Auth::user()->name}}</span>
            </a>
            <ul class="dropdown-menu">
              <!-- User image -->
              <li class="user-header">
-               <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+               <img src="{{asset('admin/dist/img/ovo.jpeg')}}" class="img-circle" alt="User Image">
 
                <p>
                  {{Auth::user()->name}} - Web Developer

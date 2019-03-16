@@ -36963,8 +36963,8 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("p", { staticClass: "post-meta" }, [
-      _vm._v("Posted by\n    "),
-      _c("a", { attrs: { href: "#" } }, [_vm._v("#")]),
+      _vm._v("Posted\n    "),
+      _c("a", { attrs: { href: "#" } }),
       _vm._v("\n    " + _vm._s(_vm.created_at) + "\n    "),
       _c(
         "a",

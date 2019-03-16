@@ -12,8 +12,8 @@
     </h3>
 
   </a>
-  <p class="post-meta">Posted by
-    <a href="#">#</a>
+  <p class="post-meta">Posted
+    <a href="#"></a>
     {{created_at}}
     <a href=""@click.prevent="Likeit">
       <small>{{likeCount}}</small>

@@ -32,5 +32,13 @@ class HomeController extends Controller
         $slug = $tags->posts();
         return view('layouts/user/blogs',compact('slug'));
     }
+    public function contact()
+    {
+      return view('layouts/user/contact');
+    }
+    public function about()
+    {
+      return view('layouts/user/about');
+    }
 
 }

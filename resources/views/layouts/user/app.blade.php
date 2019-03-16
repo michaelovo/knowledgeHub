@@ -7,6 +7,7 @@
   </head>
 
   <body>
+    <div style="background-color:#000;">
     <!-- header-->
     @include('layouts/user/nav')
       <!-- /header-->
@@ -20,7 +21,7 @@
   @include('layouts/user/footer')
 
 <!--/footer -->
-
+</div>
   </body>
 
 </html>
