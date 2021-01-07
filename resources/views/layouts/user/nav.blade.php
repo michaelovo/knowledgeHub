@@ -9,15 +9,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a class="nav-link" href="{{route('home')}}">Home</a>
-            </li>
+            </li> --}}
             <li class="nav-item">
               <a class="nav-link" href="{{route('blogs')}}">Blogs</a>
             </li>
-            <!--li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link" href="{{route('about')}}">About</a>
-            </li-->
+            </li>
 
             <li class="nav-item">
               <a class="nav-link" href="{{route('contact')}}">Contact</a>

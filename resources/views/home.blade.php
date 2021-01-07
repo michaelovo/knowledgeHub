@@ -1,6 +1,6 @@
 @extends('layouts/user/app')
 
-@section('bg-image',('/user/img/blogBG.jpg'))
+@section('bg-image',asset('user/img/blogBG.jpg'))
 @section('heading','Welcome')
 @section('sub-heading',"...Never stop learning")
 @section('head')
