@@ -29,7 +29,7 @@
 </head>
 
 <body class="hold-transition login-page"
-style="background: url({{asset('admin/dist/img/hero.jpg')}}); background-size:cover; background-position: center center">
+style="background: url({{asset('admin/dist/img/log2.jpg')}}); background-size:cover; background-position: center center">
 
 <div class="login-box">
   <div class="login-logo">

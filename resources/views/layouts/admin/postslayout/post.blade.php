@@ -3,6 +3,7 @@
  @section('headSection')
  <!-- Select2 -->
   <link rel="stylesheet" href="{{asset('admin/bower_components/select2/dist/css/select2.min.css')}}">
+  <link rel="stylesheet" href="{{asset('admin/dist/css/AdminLTE.min.css')}}">
 
  @endsection
 
@@ -118,12 +119,13 @@
 
             <!-- tools box -->
             <div class="pull-right box-tools">
-              <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip"
-                      title="Collapse">
-                <i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip"
+              <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fa fa-minus"></i>
+              </button>
+              {{-- <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip"
                       title="Remove">
-                <i class="fa fa-times"></i></button>
+                <i class="fa fa-times"></i>
+              </button> --}}
             </div>
           </div>
           <!-- /editor header -->
@@ -140,8 +142,8 @@
         </div>
         <!-- /editor ends -->
         <div class="box-footer">
-              <button type="submit" class="btn btn-primary">Submit</button>
-              <a class="btn btn-warning" href="{{route('post.index')}}">Back </a>
+              <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+              <a class="btn btn-sm btn-warning" href="{{route('post.index')}}">Back </a>
 
 
             </div>

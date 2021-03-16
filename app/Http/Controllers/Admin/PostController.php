@@ -70,7 +70,7 @@ class PostController extends Controller
         $this->validate($request,[
         'title'=>'required',
         'subtitle'=>'required',
-        'slug'=>'required',
+        'slug'=>'required|unique:posts',
         'image'=>'required',
         //'status'=>'required',
         'body'=>'required'
@@ -143,8 +143,8 @@ class PostController extends Controller
         $this->validate($request,[
         'title'=>'required',
         'subtitle'=>'required',
-        'slug'=>'required',
-        'image'=>'required',
+        'slug'=>'nullable |string',
+        'image'=>'nullable|string',
         'body'=>'required'
       ]);
       // To test for image/file availability before upload
@@ -152,6 +152,8 @@ class PostController extends Controller
         //  return $request->image->getClientOriginalName(); // to get original image/file name
           //To store uploaded file. directory'storage/app/public/images
         $imageName = $request->image->store('public/images');//'public' is default, bt '/images' is user defined
+        }else{
+          $imageName =$request->old_image;
         }
 
         $post = Post::find($id);
@@ -161,7 +163,7 @@ class PostController extends Controller
         $post->slug = $request->slug;
         $post->body = $request->body;
         $post->status = $request->status;
-        $post->update();// 'save()' will also work
+        return $post;//->update();// 'save()' will also work
         $post->tags()->sync($request->tags);// 'tags' is the relationship name defined in the 'user' model
         $post->category()->sync($request->category);// 'category' is the relationship name defined in the 'user' model
 

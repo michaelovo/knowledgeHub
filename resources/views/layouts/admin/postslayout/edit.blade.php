@@ -3,6 +3,7 @@
  @section('headSection')
  <!-- Select2 -->
   <link rel="stylesheet" href="{{asset('admin/bower_components/select2/dist/css/select2.min.css')}}">
+  <link rel="stylesheet" href="{{asset('admin/dist/css/AdminLTE.min.css')}}">
  @endsection
 
 
@@ -52,7 +53,7 @@
           <!-- post slug-->
           <div class="form-group">
             <label for="slug">Post Slug</label>
-            <input type="text" class="form-control" id="slug" name ="slug" placeholder="Enter slug" value="{{$posts->slug}}">
+            <input type="text" class="form-control" id="slug" name ="slug" placeholder="Enter slug" value="{{$posts->slug}}" readonly>
           </div>
           <!--/post slug -->
 
@@ -67,6 +68,7 @@
                   <label for="exampleInputFile">File input</label>
                   <input type="file" id="exampleInputFile" name="image">
                    <p class="help-block">Choose a file.</p>
+                   <input type="hidden" value="{{$posts->image}}" name="old_image">
                 </div><!--/pull right -->
 
                 <!-- publish -->
@@ -174,8 +176,8 @@
         </div>
         <!-- /editor ends -->
         <div class="box-footer">
-              <button type="submit" class="btn btn-primary">Submit</button>
-              <a class="btn btn-warning" href="{{route('post.index')}}">Back </a>
+              <button type="submit" class="btn btn-sm btn-primary">Update</button>
+              <a class="btn btn-sm btn-warning" href="{{route('post.index')}}">Back </a>
 
 
             </div>
